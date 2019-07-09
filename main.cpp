@@ -241,8 +241,14 @@ int main() {
 
    for (int i = 0; i < len+1; i++){
 
-       cout << "state[" << i << "]:\n" << OracleRelations.states[i].lrs << "\n";
-       cout << "Suffix:" << OracleRelations.states[i].suffixTransition << "\n";
+       cout << "STATE[" << i << "]:\n" << "LRS: "<< OracleRelations.states[i].lrs << "\n";
+       cout << "Suffix: " << OracleRelations.states[i].suffixTransition << "\n";
+       cout << "Transitions: " << "\n";
+       for (int w = 0; w < OracleRelations.states[i].transition.size(); w++)
+       {
+           cout << OracleRelations.states[i].transition[w].first_state << " " << OracleRelations.states[i].transition[w].last_state << " "  << OracleRelations.states[i].transition[w].symbol << "\n";
+       }
+       cout << "\n";
    }
 
     return 0;
