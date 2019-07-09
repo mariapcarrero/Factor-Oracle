@@ -70,7 +70,8 @@ int Suffix(int m)
 int FindBetter(States& States, vector <vector<int>> &T, int i, char alpha, string word)
 {
     int lenT = T[i].size();
-    sort(T[i].begin(), T[i].end());
+    if (lenT == 0) return 0;
+    //sort(T[i].begin(), T[i].end());
     for (int j = 0; j < lenT; j++)
     {
         if (States.states[j].lrs == States.states[i].lrs && word[j - States.states[i].lrs] == alpha)
@@ -176,12 +177,19 @@ int main() {
     cout << word;
 
     States OracleRelations;
-    OracleRelations.states.resize(len+2);
+    OracleRelations.states.resize(len+1);
+    SingleTransition statezero;
+    statezero.first_state = 0;
+    statezero.last_state = 1;
+    statezero.symbol = word[0];
+    OracleRelations.states[0].transition.push_back(statezero);
     OracleRelations.states[0].state = 0;
     OracleRelations.states[0].lrs = 0;
     OracleRelations.states[0].suffixTransition = -1;
     vector <vector<int>> T;
     T.resize(len+1);
+    cout << OracleRelations.states.size();
+
  /*   OracleRelations.letters.reserve(len+2);
     OracleRelations.suffix.reserve(len+2);
     OracleRelations.lrs.reserve(len+2);
@@ -193,15 +201,14 @@ int main() {
 /*
     OracleRelations.numbers[0] = 0;
     OracleRelations.suffix[0] = -1;*/
-    for (int i = 0; i < len+1; i++)
-        cout << '*' << OracleRelations.states[i].lrs << ' ';
-    for (int i = 1; i <= len+1; i++)
+
+    for (int i = 1; i <= len; i++)
     {
         AddLetter(OracleRelations, T , i, word);
     }
 
    for (int i = 0; i < len+1; i++)
-        cout << '*' << OracleRelations.states[i].lrs << ' ';
+        cout << '* ' << OracleRelations.states[i].lrs << ' ';
     //cout << "Hello, World!" << std::endl;  << "\n"
     return 0;
 }
