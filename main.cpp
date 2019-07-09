@@ -40,7 +40,7 @@ class State
 {
 public:
     int state;
-   // int number;
+    // int number;
     vector <SingleTransition> transition;
     int suffixTransition;
     int lrs = 0;
@@ -48,9 +48,9 @@ public:
         transition.resize(R);
     }
 
-  /*  void suffixResize(){
-        suffixTransition.resize(R, vector<SuffixTransition>(D));
-    }*/
+    /*  void suffixResize(){
+          suffixTransition.resize(R, vector<SuffixTransition>(D));
+      }*/
 };
 
 class States
@@ -72,10 +72,18 @@ int FindBetter(States& States, vector <vector<int>> &T, int i, char alpha, strin
     int lenT = T[i].size();
     if (lenT == 0) return 0;
     //sort(T[i].begin(), T[i].end());
+    cout << "entro \n";
     for (int j = 0; j < lenT; j++)
     {
         if (States.states[j].lrs == States.states[i].lrs && word[j - States.states[i].lrs] == alpha)
+        {
+            cout << "wordVAL: " << word[j - States.states[i].lrs] << "\n";
+            cout <<  "word: " << word << "\n";
+            cout <<  "alpha11: " << alpha << "\n";
+            cout <<  "j: " << j << "\n";
             return j;
+        }
+
     }
     return 0;
 }
@@ -95,50 +103,61 @@ int LengthCommonSuffix(States& States, int phi_one, int phi_two)
 void AddLetter(States& States, vector <vector<int>> &T, int i, string word)
 {
     char alpha = word[i-1];
-    States.states[i].state = i+1;
- //   States.states[i].state = word[i-1];
+    States.states[i-1].state = i;
+    //   States.states[i].state = word[i-1];
     SingleTransition tran;
-    tran.first_state = i;
-    tran.last_state = i+1;
+    tran.first_state = i-1;
+    tran.last_state = i;
     tran.symbol = alpha;
 
-    int statemplusone = i+1;
+    int statemplusone = i;
 
-  /*  if (States.states[i].transition.empty())
-    {
-        States.states[i].singleResize();
-       // States.states[i].suffixResize();
-    }*/
+    /*  if (States.states[i].transition.empty())
+      {
+          States.states[i].singleResize();
+         // States.states[i].suffixResize();
+      }*/
 
-   // States.states[i].transition.resize(R, vector<SingleTransition>(C));
-   // int sizeTransition = States.states[i].transition.size();
-    int m = i;
-    States.states[m].transition.push_back(tran);
-    phi = m;
-    k = States.states[m].suffixTransition;
+    // States.states[i].transition.resize(R, vector<SingleTransition>(C));
+    // int sizeTransition = States.states[i].transition.size();
+    //  int m = i;
+    States.states[i-1].transition.push_back(tran);
+    phi = i-1;
+    k = States.states[i-1].suffixTransition;
     int flag = 0, iter = 0;
     while (k > -1 && flag == 0)
     {
 
-        while (States.states[k].transition[iter].symbol != alpha && iter < States.states[k].transition.size())
+        while ( iter < States.states[k].transition.size())
         {
+            cout << "k__k: " << k << "\n";
+            cout << "symbol: " << States.states[k].transition[iter].symbol << "\n";
+            cout << "alpha: " << alpha << "\n";
+            cout << "lenK: " << States.states[k].transition.size() << "\n";
+            for(int w = 0; w < States.states[k].transition.size(); w++)
+                cout << "SSS: " << States.states[k].transition[w].symbol << "\n";
             if (States.states[k].transition[iter].symbol == alpha)
+            {
+               // cout << "entroflag1";
                 flag = 1;
+            }
+            cout << iter << "\n";
             iter++;
         }
         if (flag == 0)
         {
+            cout << alpha << "\n";
             SingleTransition transition_k;
-            tran.first_state = k;
-            tran.last_state = statemplusone;
-            tran.symbol = alpha;
-            States.states[i].transition.push_back(transition_k);
+            transition_k.first_state = k;
+            transition_k.last_state = statemplusone;
+            transition_k.symbol = alpha;
+            States.states[k].transition.push_back(transition_k);
             phi = k;
             k = States.states[k].suffixTransition;
         }
 
     }
-
+    cout << "K AFTER: " << k << "\n";
     if (k == -1)
     {
         States.states[statemplusone].suffixTransition = 0;
@@ -146,24 +165,42 @@ void AddLetter(States& States, vector <vector<int>> &T, int i, string word)
     }
     else
     {
+
         flag = 0, iter = 0;
+        if (States.states[k].transition[iter].symbol == alpha)
+        {
+            flag = 1;
+            States.states[statemplusone].suffixTransition = States.states[k].transition[iter].last_state;
+            States.states[statemplusone].lrs = LengthCommonSuffix(States, phi, States.states[statemplusone].suffixTransition -1) + 1;
+            cout << "LENGTH: " << States.states[statemplusone].lrs << "\n";
+        }
         while (States.states[k].transition[iter].symbol != alpha && flag == 0)
         {
+            cout << "TRANS: " <<States.states[k].transition[iter].symbol << "\n";
             if (States.states[k].transition[iter].symbol == alpha)
+            {
                 flag = 1;
+                States.states[statemplusone].suffixTransition = States.states[k].transition[iter].last_state;
+                States.states[statemplusone].lrs = LengthCommonSuffix(States, phi, States.states[statemplusone].suffixTransition -1) + 1;
+                cout << "LENGTH: " << States.states[statemplusone].lrs << "\n";
+            }
+
             iter++;
         }
 
 
     }
+    cout << "statemp: " << statemplusone << "\n";
+    cout << "Statestates: " << States.states[statemplusone].lrs << "\n";
     k = FindBetter(States,T, statemplusone, word[statemplusone - States.states[statemplusone].lrs], word);
+    cout << "k: " << k << "\n";
     if (k != 0)
     {
         States.states[statemplusone].lrs = States.states[statemplusone].lrs + 1;
         States.states[statemplusone].suffixTransition = k;
     }
     T[States.states[statemplusone].suffixTransition].push_back(statemplusone);
-
+    cout << "SUFFIX: " << States.states[statemplusone].suffixTransition << "\n";
 }
 
 
@@ -179,36 +216,34 @@ int main() {
     States OracleRelations;
     OracleRelations.states.resize(len+1);
     SingleTransition statezero;
-    statezero.first_state = 0;
-    statezero.last_state = 1;
-    statezero.symbol = word[0];
-    OracleRelations.states[0].transition.push_back(statezero);
     OracleRelations.states[0].state = 0;
     OracleRelations.states[0].lrs = 0;
     OracleRelations.states[0].suffixTransition = -1;
     vector <vector<int>> T;
     T.resize(len+1);
-    cout << OracleRelations.states.size();
+    // cout << OracleRelations.states.size();
 
- /*   OracleRelations.letters.reserve(len+2);
-    OracleRelations.suffix.reserve(len+2);
-    OracleRelations.lrs.reserve(len+2);
-   // strcpy(OracleRelations.letters, word.c_str());
-    OracleRelations.letters[0] = ' ';
- /*   for (int i = 1; i < len+1; i++)
-        OracleRelations.letters[i] = word[i-1];
-*/
+    /*   OracleRelations.letters.reserve(len+2);
+       OracleRelations.suffix.reserve(len+2);
+       OracleRelations.lrs.reserve(len+2);
+      // strcpy(OracleRelations.letters, word.c_str());
+       OracleRelations.letters[0] = ' ';
+    /*   for (int i = 1; i < len+1; i++)
+           OracleRelations.letters[i] = word[i-1];
+   */
 /*
     OracleRelations.numbers[0] = 0;
     OracleRelations.suffix[0] = -1;*/
 
     for (int i = 1; i <= len; i++)
     {
+        cout << "estadoOut: " << i << "\n";
         AddLetter(OracleRelations, T , i, word);
     }
 
-   for (int i = 0; i < len+1; i++)
+    for (int i = 0; i < len+1; i++)
         cout << '* ' << OracleRelations.states[i].lrs << ' ';
     //cout << "Hello, World!" << std::endl;  << "\n"
     return 0;
 }
+
