@@ -1,5 +1,12 @@
 #include "FactorOracle.h"
 
+/*! \file FactorOracle.cpp
+    \brief A file that contains the functions needed for the creation of a Factor Oracle.
+
+    Five main functions: FactorOracleStart, AddLetter, LengthCommonSuffix, FindBetter and FOGenerate.
+*/
+
+
 int phi, k;
 
 string FactorOracle::FOGenerate(FactorOracle& States, int i, string v, float q)
@@ -48,6 +55,7 @@ int FactorOracle::FindBetter(FactorOracle& States, vector <vector<int>> &T, int 
       \param word a string argument.
       \return A better state
     */
+
     int lenT = T[States.states[i].suffixTransition].size();
     int statei = States.states[i].suffixTransition;
     if (lenT == 0) return 0;
@@ -163,6 +171,12 @@ void FactorOracle::AddLetter(FactorOracle &States, vector<vector<int>> &T, int i
         States.states[statemplusone].suffixTransition = k;
     }
     T[States.states[statemplusone].suffixTransition].push_back(statemplusone);
+    for (int f = 0; f < T.size(); f++)
+    {
+        for (int p = 0; p < T[f].size(); p++)
+            cout << T[f][p] << " ";
+        cout << "\n";
+    }
 }
 
 
@@ -170,6 +184,7 @@ void FactorOracle::FactorOracleStart(FactorOracle& OracleRelations,string word)
 {
     //! A normal member taking one argument and returning no value.
     /*!
+      \param OracleRelations a reference to a FactorOracle class.
       \param word a string argument.
     */
     int len = word.size();

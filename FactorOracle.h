@@ -17,10 +17,48 @@
 #define RAND_MAX 0x7fffffff
 
 /*! \file FactorOracle.h
-    \brief A file that contains the definitions of the classes needed for the functions.
+    \brief A file that contains the definitions of the classes needed for the creation of a Factor Oracle.
 
     Three main classes: FactorOracle, State and SingleTransition.
 */
+/*! \fn void AddLetter(FactorOracle& States, vector <vector<int>> &T, int i, string word)
+    \brief Adds new transitions from state i-1 to state i.
+    \param States A reference to a FactorOracle class.
+    \param T A vector where each position has all the suffix transitions directed to each state.
+    \param i The integer of the current state.
+    \param word The input string.
+
+*/
+/*! \fn int LengthCommonSuffix(FactorOracle& States, int phi_one, int phi_two)
+    \brief Finds the length of a common suffix ending at the position phi_one and phi_two by traversing the suffix links.
+    \param States A reference to a FactorOracle class.
+    \param phi_one The position of the state.
+    \param phi_two The position of the state.
+*/
+/*! \fn int FindBetter(FactorOracle& States, vector <vector<int>> &T, int i, char alpha, string word)
+    \brief Writes \a count bytes from \a buf to the filedescriptor \a fd.
+    \param States a reference to a FactorOracle class.
+    \param T A vector where each position has all the suffix transitions directed to each state.
+    \param i The integer of the current state.
+    \param alpha The transition symbol.
+    \param word The input string.
+    \return A better state
+*/
+/*! \fn string FOGenerate(FactorOracle& States, int i, string v, float q)
+    \brief Generates the Factor Oracle improvisation.
+    \param States A reference to a FactorOracle class.
+    \param i The integer of the current state.
+    \param v The sequence v.
+    \param q A float argument.
+    \return The factor oracle improvisation
+*/
+/*! \fn void FactorOracleStart(FactorOracle& OracleRelations,string word)
+    \brief Starts the process of the Factor Oracle generation .
+    \param OracleRelations A reference to a FactorOracle class.
+    \param word The input string.
+*/
+
+
 
 
 using namespace std;

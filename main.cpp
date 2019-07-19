@@ -3,6 +3,12 @@
 //
 #include "FactorOracle.h"
 
+/*! \file main.cpp
+    \brief A file that contains the main functions, which starts all the algorithm.
+
+    One functions: main.
+*/
+
 int main() {
     string word;
     cout << "El string es: ";
