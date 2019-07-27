@@ -7,48 +7,50 @@
 */
 
 
-int phi, k;
+int phi, k, fo_iter;
 
-string FactorOracle::FOGenerate(FactorOracle& States, int i, string v, float q)
+string FactorOracle::FOGenerate(FactorOracle& all_states_, int& i, string v, float q)
 {
     //! A normal member taking four arguments and returning a string value.
     /*!
-      \param States a reference to a FactorOracle class.
+      \param all_states_ a reference to a FactorOracle class.
       \param i an integer argument.
       \param v a string argument.
       \param q a float argument.
       \return The factor oracle improvisation
     */
-    std::random_device rd;  //Will be used to obtain a seed for the random number engine
-    std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+    std::random_device rd;  ///Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); ///Standard mersenne_twister_engine seeded with rd()
     std::uniform_real_distribution<> dis(0.0, 1.0);
     float u = dis(gen);
-    // float u = (float)rand() / RAND_MAX;
+    /// float u = (float)rand() / RAND_MAX;
     if (u < q)
     {
         i = i + 1;
-        char w = States.states[i].transition[0].symbol;
+        char w = all_states_.states_[i].transition_[0].symbol_;
         string s(1,w);
         v = v + s;
     }
     else
     {
-        int lenSuffix = States.states[States.states[i].suffixTransition].transition.size() - 1;
+        int lenSuffix = all_states_.states_[all_states_.states_[i].suffix_transition_].transition_.size() - 1;
+        std::random_device rd;  ///Will be used to obtain a seed for the random number engine
+        std::mt19937 gen(rd()); ///Standard mersenne_twister_engine seeded with rd()
         std::uniform_int_distribution<> dis_int(0, lenSuffix);
         int rand_alpha = dis_int(gen);
-        char alpha = States.states[States.states[i].suffixTransition].transition[rand_alpha].symbol;
-        i = States.states[States.states[i].suffixTransition].transition[rand_alpha].last_state;
+        char alpha = all_states_.states_[all_states_.states_[i].suffix_transition_].transition_[rand_alpha].symbol_;
+        i = all_states_.states_[all_states_.states_[i].suffix_transition_].transition_[rand_alpha].last_state_;
         v = v + alpha;
     }
     return v;
 }
 
 
-int FactorOracle::FindBetter(FactorOracle& States, vector <vector<int>> &T, int i, char alpha, string word)
+int FactorOracle::FindBetter(FactorOracle& all_states_, vector <vector<int> > &T, int i, char alpha, string word)
 {
     //! A normal member taking five arguments and returning an integer value.
     /*!
-      \param States a reference to a FactorOracle class.
+      \param all_states_ a reference to a FactorOracle class.
       \param T a reference to a vector of vector of integers.
       \param i an integer argument.
       \param alpha a char argument.
@@ -56,52 +58,52 @@ int FactorOracle::FindBetter(FactorOracle& States, vector <vector<int>> &T, int 
       \return A better state
     */
 
-    int lenT = T[States.states[i].suffixTransition].size();
-    int statei = States.states[i].suffixTransition;
-    if (lenT == 0) return 0;
+    int len_t = T[all_states_.states_[i].suffix_transition_].size();
+    int statei = all_states_.states_[i].suffix_transition_;
+    if (len_t == 0) return 0;
     sort(T[statei].begin(), T[statei].end());
-    for (int j = 0; j < lenT; j++)
+    for (int j = 0; j < len_t; j++)
     {
-        if (States.states[T[States.states[i].suffixTransition][j]].lrs == States.states[i].lrs && word[T[States.states[i].suffixTransition][j] - States.states[i].lrs - 1] == alpha)
+        if (all_states_.states_[T[all_states_.states_[i].suffix_transition_][j]].lrs_ == all_states_.states_[i].lrs_ && word[T[all_states_.states_[i].suffix_transition_][j] - all_states_.states_[i].lrs_ - 1] == alpha)
         {
-            int out = T[States.states[i].suffixTransition][j];
+            int out = T[all_states_.states_[i].suffix_transition_][j];
             return out;
         }
 
     }
     return 0;
 }
-int FactorOracle::LengthCommonSuffix(FactorOracle& States, int phi_one, int phi_two)
+int FactorOracle::LengthCommonSuffix(FactorOracle& all_states_, int phi_one, int phi_two)
 {
-    if (phi_two == States.states[phi_one].suffixTransition)
-        return States.states[phi_one].lrs;
+    if (phi_two == all_states_.states_[phi_one].suffix_transition_)
+        return all_states_.states_[phi_one].lrs_;
     else
     {
-        while (States.states[phi_one].suffixTransition!= States.states[phi_two].suffixTransition)
-            phi_two = States.states[phi_two].suffixTransition;
+        while (all_states_.states_[phi_one].suffix_transition_!= all_states_.states_[phi_two].suffix_transition_)
+            phi_two = all_states_.states_[phi_two].suffix_transition_;
     }
-    if (States.states[phi_one].lrs <= States.states[phi_two].lrs)
-        return States.states[phi_one].lrs;
-    else return States.states[phi_two].lrs;
+    if (all_states_.states_[phi_one].lrs_ <= all_states_.states_[phi_two].lrs_)
+        return all_states_.states_[phi_one].lrs_;
+    else return all_states_.states_[phi_two].lrs_;
 }
-void FactorOracle::AddLetter(FactorOracle &States, vector<vector<int>> &T, int i, string word)
+void FactorOracle::AddLetter(FactorOracle &all_states_, vector<vector<int> > &T, int i, string word)
 {
     //! A normal member taking four arguments and returning no value.
     /*!
-      \param States a reference to a FactorOracle class.
+      \param all_states_ a reference to a FactorOracle class.
       \param T a reference to a vector of vector of integers.
       \param i an integer argument.
       \param word a string argument.
     */
     char alpha = word[i-1];
-    States.states[i-1].state = i-1;
-    SingleTransition tran;
-    tran.first_state = i-1;
-    tran.last_state = i;
-    tran.symbol = alpha;
+    all_states_.states_[i-1].state_ = i-1;
+    SingleTransition transition_i;
+    transition_i.first_state_ = i-1;
+    transition_i.last_state_ = i;
+    transition_i.symbol_ = alpha;
     int statemplusone = i;
-    States.states[i-1].transition.push_back(tran); /*!< delta(i-1, p[i]) <- i */
-    k = States.states[i-1].suffixTransition; /*!< k = S[i-1] */
+    all_states_.states_[i-1].transition_.push_back(transition_i); /*!< delta(i-1, p[i]) <- i */
+    k = all_states_.states_[i-1].suffix_transition_; /*!< k = S[i-1] */
     phi = i-1; /*!< phi_one = i-1 */
     int flag = 0, iter = 0;
     /**
@@ -112,50 +114,47 @@ void FactorOracle::AddLetter(FactorOracle &States, vector<vector<int>> &T, int i
      * */
     while (k > -1 && flag == 0)
     {
-
-        while (iter < States.states[k].transition.size())
+        while (iter < all_states_.states_[k].transition_.size())
         {
-            if (States.states[k].transition[iter].symbol == alpha)
+            if (all_states_.states_[k].transition_[iter].symbol_ == alpha)
             {
                 flag = 1;
             }
             iter++;
         }
-
         if (flag == 0)
         {
             SingleTransition transition_k;
-            transition_k.first_state = k;
-            transition_k.last_state = statemplusone;
-            transition_k.symbol = alpha;
-            States.states[k].transition.push_back(transition_k);
+            transition_k.first_state_ = k;
+            transition_k.last_state_ = statemplusone;
+            transition_k.symbol_ = alpha;
+            all_states_.states_[k].transition_.push_back(transition_k);
             phi = k;
-            k = States.states[k].suffixTransition;
+            k = all_states_.states_[k].suffix_transition_;
             iter = 0;
         }
-
     }
     if (k == -1)
     {
-        States.states[statemplusone].suffixTransition = 0;
-        States.states[statemplusone].lrs = 0;
+        all_states_.states_[statemplusone].suffix_transition_ = 0;
+        all_states_.states_[statemplusone].lrs_ = 0;
     }
     else
     {
         flag = 0, iter = 0;
-        if (States.states[k].transition[iter].symbol == alpha)
+        if (all_states_.states_[k].transition_[iter].symbol_ == alpha)
         {
             flag = 1;
-            States.states[statemplusone].suffixTransition = States.states[k].transition[iter].last_state;
-            States.states[statemplusone].lrs = States.LengthCommonSuffix(States, phi, States.states[statemplusone].suffixTransition -1) + 1;
+            all_states_.states_[statemplusone].suffix_transition_ = all_states_.states_[k].transition_[iter].last_state_;
+            all_states_.states_[statemplusone].lrs_ = all_states_.LengthCommonSuffix(all_states_, phi, all_states_.states_[statemplusone].suffix_transition_ -1) + 1;
         }
-        while (iter < States.states[k].transition.size() && flag == 0)
+        while (iter < all_states_.states_[k].transition_.size() && flag == 0)
         {
-            if (States.states[k].transition[iter].symbol == alpha)
+            if (all_states_.states_[k].transition_[iter].symbol_ == alpha)
             {
 
-                States.states[statemplusone].suffixTransition = States.states[k].transition[iter].last_state;
-                States.states[statemplusone].lrs = States.LengthCommonSuffix(States, phi, States.states[statemplusone].suffixTransition -1) + 1;
+                all_states_.states_[statemplusone].suffix_transition_ = all_states_.states_[k].transition_[iter].last_state_;
+                all_states_.states_[statemplusone].lrs_ = all_states_.LengthCommonSuffix(all_states_, phi, all_states_.states_[statemplusone].suffix_transition_ -1) + 1;
                 flag = 1;
             }
 
@@ -164,57 +163,71 @@ void FactorOracle::AddLetter(FactorOracle &States, vector<vector<int>> &T, int i
 
 
     }
-    k = States.FindBetter(States,T, statemplusone, word[statemplusone - States.states[statemplusone].lrs - 1], word);
+    k = all_states_.FindBetter(all_states_,T, statemplusone, word[statemplusone - all_states_.states_[statemplusone].lrs_ - 1], word);
     if (k != 0)
     {
-        States.states[statemplusone].lrs = States.states[statemplusone].lrs + 1;
-        States.states[statemplusone].suffixTransition = k;
+        all_states_.states_[statemplusone].lrs_ = all_states_.states_[statemplusone].lrs_ + 1;
+        all_states_.states_[statemplusone].suffix_transition_ = k;
     }
-    T[States.states[statemplusone].suffixTransition].push_back(statemplusone);
-    for (int f = 0; f < T.size(); f++)
+    T[all_states_.states_[statemplusone].suffix_transition_].push_back(statemplusone);
+    /*for (int f = 0; f < T.size(); f++)
     {
         for (int p = 0; p < T[f].size(); p++)
             cout << T[f][p] << " ";
         cout << "\n";
-    }
+    }*/
 }
 
 
-void FactorOracle::FactorOracleStart(FactorOracle& OracleRelations,string word)
+void FactorOracle::FactorOracleStart(FactorOracle& oracle_relations,string word)
 {
     //! A normal member taking one argument and returning no value.
     /*!
-      \param OracleRelations a reference to a FactorOracle class.
+      \param oracle_relations a reference to a FactorOracle class.
       \param word a string argument.
     */
     int len = word.size();
-    OracleRelations.states.resize(len+1);
-    SingleTransition statezero; /*!< Create state 0 */
-    OracleRelations.states[0].state = 0;
-    OracleRelations.states[0].lrs = 0;
-    OracleRelations.states[0].suffixTransition = -1; /*!< S[0] = -1 */
-    vector <vector<int>> T;
-    T.resize(len+1);
+    oracle_relations.states_.resize(len+1);
+    //SingleTransition statezero; /*!< Create state 0 */
+    oracle_relations.states_[0].state_ = 0;
+    oracle_relations.states_[0].lrs_ = 0;
+    oracle_relations.states_[0].suffix_transition_ = -1; /*!< S[0] = -1 */
+    oracle_relations.T.resize(len+1);
     for (int i = 1; i <= len; i++)
     {
         /*!< for i <- 1 to m
         * do AddLetter(i)
         */
-        OracleRelations.AddLetter(OracleRelations, T , i, word);
+        oracle_relations.AddLetter(oracle_relations, oracle_relations.T , i, word);
     }
-
+    /*
     for (int i = 0; i < len+1; i++){
 
-        cout << "STATE[" << i << "]:\n" << "LRS: "<< OracleRelations.states[i].lrs << "\n";
-        cout << "Suffix: " << OracleRelations.states[i].suffixTransition << "\n";
+        cout << "STATE[" << i << "]:\n" << "LRS: "<< oracle_relations.states_[i].lrs_ << "\n";
+        cout << "Suffix: " << oracle_relations.states_[i].suffix_transition_ << "\n";
         cout << "Transitions: " << "\n";
-        for (int w = 0; w < OracleRelations.states[i].transition.size(); w++)
+        for (int w = 0; w < oracle_relations.states_[i].transition_.size(); w++)
         {
-            cout << OracleRelations.states[i].transition[w].first_state << " " << OracleRelations.states[i].transition[w].last_state << " "  << OracleRelations.states[i].transition[w].symbol << "\n";
+            cout << oracle_relations.states_[i].transition_[w].first_state_ << " " << oracle_relations.states_[i].transition_[w].last_state_ << " "  << oracle_relations.states_[i].transition_[w].symbol_ << "\n";
         }
         cout << "\n";
 
     }
-    cout << "Factor Oracle Sequence: " << OracleRelations.FOGenerate(OracleRelations,0,"",0.5);
+    string oracle = "";
+    fo_iter = 1;
+    for (int x = 0; x < len; x++)
+    {
+        oracle = oracle_relations.FOGenerate(oracle_relations,fo_iter,oracle,0.5);
+        if (fo_iter == len)
+            fo_iter = len-1;
+        cout << "Factor Oracle Sequence: " << oracle << "\n";
+
+    }*/
+
+}
+
+void FactorOracle::FactorOracleWord(FactorOracle& oracle_relations,string word)
+{
+    oracle_relations.FactorOracleStart(oracle_relations,word);
 }
 
