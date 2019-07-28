@@ -6,7 +6,23 @@
 #include "FactorOracle.h"
 
 
-void PrepareTest(FactorOracle& oracle_relations)
+void PrepareTestAddLetter(FactorOracle& oracle_relations)
+{
+
+
+    ///States
+    ///State zero
+    State state_0;
+    state_0.state_= 0;
+    state_0.suffix_transition_ = -1;
+    state_0.lrs_ = 0;
+    //state_0.transition_.push_back(transition_0_1);
+
+    ///Complete factor oracle
+    oracle_relations.states_.push_back(state_0);
+
+}
+void PrepareTestAddLetterOne(FactorOracle& oracle_relations)
 {
 
 
@@ -23,10 +39,10 @@ void PrepareTest(FactorOracle& oracle_relations)
     transition_0_4.first_state_ = 0;
     transition_0_4.last_state_ = 4;
     transition_0_4.symbol_ = 'c';
-    SingleTransition transition_0_8;
+    /*SingleTransition transition_0_8;
     transition_0_8.first_state_ = 0;
     transition_0_8.last_state_ = 8;
-    transition_0_8.symbol_ = 'd';
+    transition_0_8.symbol_ = 'd';*/
     /// Transitions from one
     SingleTransition transition_1_2;
     transition_1_2.first_state_ = 1;
@@ -42,11 +58,12 @@ void PrepareTest(FactorOracle& oracle_relations)
     transition_2_4.last_state_ = 4;
     transition_2_4.symbol_ = 'c';
     ///Transitions from three
-    SingleTransition transition_3_4;
+   SingleTransition transition_3_4;
     transition_3_4.first_state_ = 3;
     transition_3_4.last_state_ = 4;
     transition_3_4.symbol_ = 'c';
     ///Transitions from four
+    /*
     SingleTransition transition_4_5;
     transition_4_5.first_state_ = 4;
     transition_4_5.last_state_ = 5;
@@ -84,7 +101,7 @@ void PrepareTest(FactorOracle& oracle_relations)
     SingleTransition transition_10_11;
     transition_10_11.first_state_ = 10;
     transition_10_11.last_state_ = 11;
-    transition_10_11.symbol_ = 'c';
+    transition_10_11.symbol_ = 'c';*/
 
     ///States
     ///State zero
@@ -95,7 +112,7 @@ void PrepareTest(FactorOracle& oracle_relations)
     state_0.transition_.push_back(transition_0_1);
     state_0.transition_.push_back(transition_0_2);
     state_0.transition_.push_back(transition_0_4);
-    state_0.transition_.push_back(transition_0_8);
+  //  state_0.transition_.push_back(transition_0_8);
 
     ///State one
     State state_1;
@@ -117,7 +134,7 @@ void PrepareTest(FactorOracle& oracle_relations)
     state_3.lrs_ = 1;
     state_3.transition_.push_back(transition_3_4);
     ///State four
-    State state_4;
+   /* State state_4;
     state_4.state_= 4;
     state_4.suffix_transition_ = 0;
     state_4.lrs_ = 0;
@@ -163,13 +180,17 @@ void PrepareTest(FactorOracle& oracle_relations)
     State state_11;
     state_11.state_= 11;
     state_11.suffix_transition_ = 4;
-    state_11.lrs_ = 2;
+    state_11.lrs_ = 2;*/
 
     ///Complete factor oracle
     oracle_relations.states_.push_back(state_0);
     oracle_relations.states_.push_back(state_1);
     oracle_relations.states_.push_back(state_2);
     oracle_relations.states_.push_back(state_3);
+    oracle_relations.states_.resize(11);
+    /*
+     *
+     *
     oracle_relations.states_.push_back(state_4);
     oracle_relations.states_.push_back(state_5);
     oracle_relations.states_.push_back(state_6);
@@ -177,25 +198,60 @@ void PrepareTest(FactorOracle& oracle_relations)
     oracle_relations.states_.push_back(state_8);
     oracle_relations.states_.push_back(state_9);
     oracle_relations.states_.push_back(state_10);
-    oracle_relations.states_.push_back(state_11);
+    oracle_relations.states_.push_back(state_11);*/
 
 }
-TEST_CASE( "FindBetter 11 a == 7 (pass) with string abbcabcdabc", "[classic]") {
+TEST_CASE( "AddLetter (5) symbol_ == a (pass) with string abbcabcdabc", "[classic]") {
+    FactorOracle oracle_relations;
+    string word = "abbcabcdabc";
+    int len = word.size();
+    oracle_relations.T = {{1,2,3},{},{3}, {},{}};
+    PrepareTestAddLetterOne(oracle_relations);
+    oracle_relations.AddLetter(oracle_relations, oracle_relations.T, 5,word);
+    REQUIRE(oracle_relations.states_[4].transition_[0].symbol_ == 'a');
+}
+
+TEST_CASE( "AddLetter (5) T  == a (pass) with string abbcabcdabc", "[classic]") {
+    FactorOracle oracle_relations;
+    string word = "abbcabcdabc";
+    int len = word.size();
+    oracle_relations.T = {{1,2,3,4},{},{3}, {},{}};
+    PrepareTestAddLetterOne(oracle_relations);
+    oracle_relations.AddLetter(oracle_relations, oracle_relations.T, 5,word);
+    REQUIRE(oracle_relations.T[1][0] == 5);
+}
+
+
+TEST_CASE( "AddLetter one letter word (pass) with string a", "[classic]") {
+    FactorOracle oracle_relations;
+    string word = "a";
+    int len = word.size();
+    oracle_relations.T = {{},{}};
+    oracle_relations.states_.resize(len+1);
+    PrepareTestAddLetter(oracle_relations);
+    oracle_relations.AddLetter(oracle_relations, oracle_relations.T, 1,word);
+    REQUIRE(oracle_relations.states_[0].transition_[0].first_state_ == 0);
+    REQUIRE(oracle_relations.states_[0].transition_[0].last_state_ == 1);
+    REQUIRE(oracle_relations.states_[0].transition_[0].symbol_ == 'a');
+  // Ask if there is a way to add a null symbol
+}
+/*
+TEST_CASE( "AddLetter 11 b == 7 (fail) with string abbcabcdabc", "[classic]") {
     FactorOracle oracle_relations;
     string word = "abbcabcdabc";
     int len = word.size();
     oracle_relations.T = {{1,2,3,4},{5,9},{3,6,10}, {}, {7,11}, {}, {},{},{},{},{},{}};
-    PrepareTest(oracle_relations);
-    REQUIRE(oracle_relations.FindBetter(oracle_relations, oracle_relations.T, 11, 'a', word) == 7);
+    PrepareTestAddLetterOne(oracle_relations);
+    oracle_relations.AddLetter(oracle_relations, oracle_relations.T, 5,word);
+    REQUIRE(oracle_relations.states_[4].transition_[0].symbol_ == 'a');
 }
 
-
-TEST_CASE( "FindBetter 11 b == 7 (fail) with string abbcabcdabc", "[classic]") {
+TEST_CASE( "AddLetter 4 b == 0 (pass) with string abbcabcdabc", "[classic]") {
     FactorOracle oracle_relations;
     string word = "abbcabcdabc";
     int len = word.size();
     oracle_relations.T = {{1,2,3,4},{5,9},{3,6,10}, {}, {7,11}, {}, {},{},{},{},{},{}};
-    PrepareTest(oracle_relations);
-    REQUIRE(oracle_relations.FindBetter(oracle_relations, oracle_relations.T, 11, 'b', word) == 7);
+    PrepareTestAddLetterOne(oracle_relations);
+    REQUIRE(oracle_relations.FindBetter(oracle_relations, oracle_relations.T, 4, 'a', word) == 0);
 }
-
+*/
