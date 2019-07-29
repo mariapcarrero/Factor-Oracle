@@ -204,6 +204,87 @@ test_add_letter.cpp.s:
 	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_add_letter.cpp.s
 .PHONY : test_add_letter.cpp.s
 
+test_find_better.o: test_find_better.cpp.o
+
+.PHONY : test_find_better.o
+
+# target to build an object file
+test_find_better.cpp.o:
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o
+.PHONY : test_find_better.cpp.o
+
+test_find_better.i: test_find_better.cpp.i
+
+.PHONY : test_find_better.i
+
+# target to preprocess a source file
+test_find_better.cpp.i:
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_find_better.cpp.i
+.PHONY : test_find_better.cpp.i
+
+test_find_better.s: test_find_better.cpp.s
+
+.PHONY : test_find_better.s
+
+# target to generate assembly for a file
+test_find_better.cpp.s:
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_find_better.cpp.s
+.PHONY : test_find_better.cpp.s
+
+test_fos.o: test_fos.cpp.o
+
+.PHONY : test_fos.o
+
+# target to build an object file
+test_fos.cpp.o:
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_fos.cpp.o
+.PHONY : test_fos.cpp.o
+
+test_fos.i: test_fos.cpp.i
+
+.PHONY : test_fos.i
+
+# target to preprocess a source file
+test_fos.cpp.i:
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_fos.cpp.i
+.PHONY : test_fos.cpp.i
+
+test_fos.s: test_fos.cpp.s
+
+.PHONY : test_fos.s
+
+# target to generate assembly for a file
+test_fos.cpp.s:
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_fos.cpp.s
+.PHONY : test_fos.cpp.s
+
+test_integral.o: test_integral.cpp.o
+
+.PHONY : test_integral.o
+
+# target to build an object file
+test_integral.cpp.o:
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_integral.cpp.o
+.PHONY : test_integral.cpp.o
+
+test_integral.i: test_integral.cpp.i
+
+.PHONY : test_integral.i
+
+# target to preprocess a source file
+test_integral.cpp.i:
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_integral.cpp.i
+.PHONY : test_integral.cpp.i
+
+test_integral.s: test_integral.cpp.s
+
+.PHONY : test_integral.s
+
+# target to generate assembly for a file
+test_integral.cpp.s:
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_integral.cpp.s
+.PHONY : test_integral.cpp.s
+
 test_lcs.o: test_lcs.cpp.o
 
 .PHONY : test_lcs.o
@@ -249,6 +330,15 @@ help:
 	@echo "... test_add_letter.o"
 	@echo "... test_add_letter.i"
 	@echo "... test_add_letter.s"
+	@echo "... test_find_better.o"
+	@echo "... test_find_better.i"
+	@echo "... test_find_better.s"
+	@echo "... test_fos.o"
+	@echo "... test_fos.i"
+	@echo "... test_fos.s"
+	@echo "... test_integral.o"
+	@echo "... test_integral.i"
+	@echo "... test_integral.s"
 	@echo "... test_lcs.o"
 	@echo "... test_lcs.i"
 	@echo "... test_lcs.s"

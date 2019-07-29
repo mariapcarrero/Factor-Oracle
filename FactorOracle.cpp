@@ -193,12 +193,23 @@ void FactorOracle::FactorOracleStart(FactorOracle& oracle_relations,string word)
     oracle_relations.states_[0].lrs_ = 0;
     oracle_relations.states_[0].suffix_transition_ = -1; /*!< S[0] = -1 */
     oracle_relations.T.resize(len+1);
-    for (int i = 1; i <= len; i++)
+    if (len+1 != 1)
     {
-        /*!< for i <- 1 to m
-        * do AddLetter(i)
-        */
-        oracle_relations.AddLetter(oracle_relations, oracle_relations.T , i, word);
+        for (int i = 1; i <= len; i++)
+        {
+            /*!< for i <- 1 to m
+            * do AddLetter(i)
+            */
+            oracle_relations.AddLetter(oracle_relations, oracle_relations.T , i, word);
+        }
+    }
+    else
+    {
+        SingleTransition transition_0;
+        transition_0.first_state_ = 0;
+        transition_0.last_state_ = 0;
+        transition_0.symbol_ = '\0';
+        oracle_relations.states_[0].transition_.push_back(transition_0);
     }
     /*
     for (int i = 0; i < len+1; i++){

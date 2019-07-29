@@ -98,6 +98,15 @@
 		<Unit filename="/Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_add_letter.cpp">
 			<Option target="FactorOracleString"/>
 		</Unit>
+		<Unit filename="/Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_find_better.cpp">
+			<Option target="FactorOracleString"/>
+		</Unit>
+		<Unit filename="/Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_fos.cpp">
+			<Option target="FactorOracleString"/>
+		</Unit>
+		<Unit filename="/Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_integral.cpp">
+			<Option target="FactorOracleString"/>
+		</Unit>
 		<Unit filename="/Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_lcs.cpp">
 			<Option target="FactorOracleString"/>
 		</Unit>

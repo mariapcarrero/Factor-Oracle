@@ -153,12 +153,87 @@ CMakeFiles/FactorOracleString.dir/test_add_letter.cpp.o.provides: CMakeFiles/Fac
 CMakeFiles/FactorOracleString.dir/test_add_letter.cpp.o.provides.build: CMakeFiles/FactorOracleString.dir/test_add_letter.cpp.o
 
 
+CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o: CMakeFiles/FactorOracleString.dir/flags.make
+CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o: ../test_find_better.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mariapaulacarrero/CLionProjects/FactorOracleString/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o -c /Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_find_better.cpp
+
+CMakeFiles/FactorOracleString.dir/test_find_better.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FactorOracleString.dir/test_find_better.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_find_better.cpp > CMakeFiles/FactorOracleString.dir/test_find_better.cpp.i
+
+CMakeFiles/FactorOracleString.dir/test_find_better.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FactorOracleString.dir/test_find_better.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_find_better.cpp -o CMakeFiles/FactorOracleString.dir/test_find_better.cpp.s
+
+CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o.requires:
+
+.PHONY : CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o.requires
+
+CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o.provides: CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o.requires
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o.provides.build
+.PHONY : CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o.provides
+
+CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o.provides.build: CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o
+
+
+CMakeFiles/FactorOracleString.dir/test_integral.cpp.o: CMakeFiles/FactorOracleString.dir/flags.make
+CMakeFiles/FactorOracleString.dir/test_integral.cpp.o: ../test_integral.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mariapaulacarrero/CLionProjects/FactorOracleString/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/FactorOracleString.dir/test_integral.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FactorOracleString.dir/test_integral.cpp.o -c /Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_integral.cpp
+
+CMakeFiles/FactorOracleString.dir/test_integral.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FactorOracleString.dir/test_integral.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_integral.cpp > CMakeFiles/FactorOracleString.dir/test_integral.cpp.i
+
+CMakeFiles/FactorOracleString.dir/test_integral.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FactorOracleString.dir/test_integral.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_integral.cpp -o CMakeFiles/FactorOracleString.dir/test_integral.cpp.s
+
+CMakeFiles/FactorOracleString.dir/test_integral.cpp.o.requires:
+
+.PHONY : CMakeFiles/FactorOracleString.dir/test_integral.cpp.o.requires
+
+CMakeFiles/FactorOracleString.dir/test_integral.cpp.o.provides: CMakeFiles/FactorOracleString.dir/test_integral.cpp.o.requires
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_integral.cpp.o.provides.build
+.PHONY : CMakeFiles/FactorOracleString.dir/test_integral.cpp.o.provides
+
+CMakeFiles/FactorOracleString.dir/test_integral.cpp.o.provides.build: CMakeFiles/FactorOracleString.dir/test_integral.cpp.o
+
+
+CMakeFiles/FactorOracleString.dir/test_fos.cpp.o: CMakeFiles/FactorOracleString.dir/flags.make
+CMakeFiles/FactorOracleString.dir/test_fos.cpp.o: ../test_fos.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mariapaulacarrero/CLionProjects/FactorOracleString/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/FactorOracleString.dir/test_fos.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FactorOracleString.dir/test_fos.cpp.o -c /Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_fos.cpp
+
+CMakeFiles/FactorOracleString.dir/test_fos.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FactorOracleString.dir/test_fos.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_fos.cpp > CMakeFiles/FactorOracleString.dir/test_fos.cpp.i
+
+CMakeFiles/FactorOracleString.dir/test_fos.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FactorOracleString.dir/test_fos.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_fos.cpp -o CMakeFiles/FactorOracleString.dir/test_fos.cpp.s
+
+CMakeFiles/FactorOracleString.dir/test_fos.cpp.o.requires:
+
+.PHONY : CMakeFiles/FactorOracleString.dir/test_fos.cpp.o.requires
+
+CMakeFiles/FactorOracleString.dir/test_fos.cpp.o.provides: CMakeFiles/FactorOracleString.dir/test_fos.cpp.o.requires
+	$(MAKE) -f CMakeFiles/FactorOracleString.dir/build.make CMakeFiles/FactorOracleString.dir/test_fos.cpp.o.provides.build
+.PHONY : CMakeFiles/FactorOracleString.dir/test_fos.cpp.o.provides
+
+CMakeFiles/FactorOracleString.dir/test_fos.cpp.o.provides.build: CMakeFiles/FactorOracleString.dir/test_fos.cpp.o
+
+
 # Object files for target FactorOracleString
 FactorOracleString_OBJECTS = \
 "CMakeFiles/FactorOracleString.dir/FactorOracle.cpp.o" \
 "CMakeFiles/FactorOracleString.dir/main.cpp.o" \
 "CMakeFiles/FactorOracleString.dir/test_lcs.cpp.o" \
-"CMakeFiles/FactorOracleString.dir/test_add_letter.cpp.o"
+"CMakeFiles/FactorOracleString.dir/test_add_letter.cpp.o" \
+"CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o" \
+"CMakeFiles/FactorOracleString.dir/test_integral.cpp.o" \
+"CMakeFiles/FactorOracleString.dir/test_fos.cpp.o"
 
 # External object files for target FactorOracleString
 FactorOracleString_EXTERNAL_OBJECTS =
@@ -167,9 +242,12 @@ FactorOracleString: CMakeFiles/FactorOracleString.dir/FactorOracle.cpp.o
 FactorOracleString: CMakeFiles/FactorOracleString.dir/main.cpp.o
 FactorOracleString: CMakeFiles/FactorOracleString.dir/test_lcs.cpp.o
 FactorOracleString: CMakeFiles/FactorOracleString.dir/test_add_letter.cpp.o
+FactorOracleString: CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o
+FactorOracleString: CMakeFiles/FactorOracleString.dir/test_integral.cpp.o
+FactorOracleString: CMakeFiles/FactorOracleString.dir/test_fos.cpp.o
 FactorOracleString: CMakeFiles/FactorOracleString.dir/build.make
 FactorOracleString: CMakeFiles/FactorOracleString.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/mariapaulacarrero/CLionProjects/FactorOracleString/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable FactorOracleString"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/mariapaulacarrero/CLionProjects/FactorOracleString/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable FactorOracleString"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FactorOracleString.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -181,6 +259,9 @@ CMakeFiles/FactorOracleString.dir/requires: CMakeFiles/FactorOracleString.dir/Fa
 CMakeFiles/FactorOracleString.dir/requires: CMakeFiles/FactorOracleString.dir/main.cpp.o.requires
 CMakeFiles/FactorOracleString.dir/requires: CMakeFiles/FactorOracleString.dir/test_lcs.cpp.o.requires
 CMakeFiles/FactorOracleString.dir/requires: CMakeFiles/FactorOracleString.dir/test_add_letter.cpp.o.requires
+CMakeFiles/FactorOracleString.dir/requires: CMakeFiles/FactorOracleString.dir/test_find_better.cpp.o.requires
+CMakeFiles/FactorOracleString.dir/requires: CMakeFiles/FactorOracleString.dir/test_integral.cpp.o.requires
+CMakeFiles/FactorOracleString.dir/requires: CMakeFiles/FactorOracleString.dir/test_fos.cpp.o.requires
 
 .PHONY : CMakeFiles/FactorOracleString.dir/requires
 

@@ -235,23 +235,4 @@ TEST_CASE( "AddLetter one letter word (pass) with string a", "[classic]") {
     REQUIRE(oracle_relations.states_[0].transition_[0].symbol_ == 'a');
   // Ask if there is a way to add a null symbol
 }
-/*
-TEST_CASE( "AddLetter 11 b == 7 (fail) with string abbcabcdabc", "[classic]") {
-    FactorOracle oracle_relations;
-    string word = "abbcabcdabc";
-    int len = word.size();
-    oracle_relations.T = {{1,2,3,4},{5,9},{3,6,10}, {}, {7,11}, {}, {},{},{},{},{},{}};
-    PrepareTestAddLetterOne(oracle_relations);
-    oracle_relations.AddLetter(oracle_relations, oracle_relations.T, 5,word);
-    REQUIRE(oracle_relations.states_[4].transition_[0].symbol_ == 'a');
-}
 
-TEST_CASE( "AddLetter 4 b == 0 (pass) with string abbcabcdabc", "[classic]") {
-    FactorOracle oracle_relations;
-    string word = "abbcabcdabc";
-    int len = word.size();
-    oracle_relations.T = {{1,2,3,4},{5,9},{3,6,10}, {}, {7,11}, {}, {},{},{},{},{},{}};
-    PrepareTestAddLetterOne(oracle_relations);
-    REQUIRE(oracle_relations.FindBetter(oracle_relations, oracle_relations.T, 4, 'a', word) == 0);
-}
-*/

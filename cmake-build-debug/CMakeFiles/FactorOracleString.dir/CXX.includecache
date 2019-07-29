@@ -26,12 +26,6 @@ random
 algorithm
 -
 
-/Users/mariapaulacarrero/CLionProjects/FactorOracleString/Tests.cpp
-catch.h
-/Users/mariapaulacarrero/CLionProjects/FactorOracleString/catch.h
-FactorOracle.h
-/Users/mariapaulacarrero/CLionProjects/FactorOracleString/FactorOracle.h
-
 /Users/mariapaulacarrero/CLionProjects/FactorOracleString/catch.h
 TargetConditionals.h
 -
@@ -595,4 +589,30 @@ cassert
 -
 
 /Users/mariapaulacarrero/CLionProjects/FactorOracleString/main.cpp
+
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_add_letter.cpp
+catch.h
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/catch.h
+FactorOracle.h
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/FactorOracle.h
+
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_find_better.cpp
+catch.h
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/catch.h
+FactorOracle.h
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/FactorOracle.h
+
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_fos.cpp
+catch.h
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/catch.h
+FactorOracle.h
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/FactorOracle.h
+
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_integral.cpp
+
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/test_lcs.cpp
+catch.h
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/catch.h
+FactorOracle.h
+/Users/mariapaulacarrero/CLionProjects/FactorOracleString/FactorOracle.h
 
