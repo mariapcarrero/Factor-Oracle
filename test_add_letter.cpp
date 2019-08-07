@@ -1,8 +1,8 @@
 //
 // Created by MARIA PAULA CARRERO on 7/27/19.
 //
-
-#include "catch.h"
+/*
+#include "catch.hpp"
 #include "FactorOracle.h"
 
 
@@ -25,7 +25,6 @@ void PrepareTestAddLetter(FactorOracle& oracle_relations)
 void PrepareTestAddLetterOne(FactorOracle& oracle_relations)
 {
 
-
     ///Transitions from zero
     SingleTransition transition_0_1;
     transition_0_1.first_state_ = 0;
@@ -39,10 +38,6 @@ void PrepareTestAddLetterOne(FactorOracle& oracle_relations)
     transition_0_4.first_state_ = 0;
     transition_0_4.last_state_ = 4;
     transition_0_4.symbol_ = 'c';
-    /*SingleTransition transition_0_8;
-    transition_0_8.first_state_ = 0;
-    transition_0_8.last_state_ = 8;
-    transition_0_8.symbol_ = 'd';*/
     /// Transitions from one
     SingleTransition transition_1_2;
     transition_1_2.first_state_ = 1;
@@ -62,47 +57,6 @@ void PrepareTestAddLetterOne(FactorOracle& oracle_relations)
     transition_3_4.first_state_ = 3;
     transition_3_4.last_state_ = 4;
     transition_3_4.symbol_ = 'c';
-    ///Transitions from four
-    /*
-    SingleTransition transition_4_5;
-    transition_4_5.first_state_ = 4;
-    transition_4_5.last_state_ = 5;
-    transition_4_5.symbol_ = 'a';
-    SingleTransition transition_4_8;
-    transition_4_8.first_state_ = 4;
-    transition_4_8.last_state_ = 8;
-    transition_4_8.symbol_ = 'd';
-    ///Transitions from five
-    SingleTransition transition_5_6;
-    transition_5_6.first_state_ = 5;
-    transition_5_6.last_state_ = 6;
-    transition_5_6.symbol_ = 'b';
-    ///Transitions from six
-    SingleTransition transition_6_7;
-    transition_6_7.first_state_ = 6;
-    transition_6_7.last_state_ = 7;
-    transition_6_7.symbol_ = 'c';
-    ///Transitions from seven
-    SingleTransition transition_7_8;
-    transition_7_8.first_state_ = 7;
-    transition_7_8.last_state_ = 8;
-    transition_7_8.symbol_ = 'd';
-    ///Transitions from eight
-    SingleTransition transition_8_9;
-    transition_8_9.first_state_ = 8;
-    transition_8_9.last_state_ = 9;
-    transition_8_9.symbol_ = 'a';
-    ///Transitions from nine
-    SingleTransition transition_9_10;
-    transition_9_10.first_state_ = 9;
-    transition_9_10.last_state_ = 10;
-    transition_9_10.symbol_ = 'b';
-    ///Transitions from ten
-    SingleTransition transition_10_11;
-    transition_10_11.first_state_ = 10;
-    transition_10_11.last_state_ = 11;
-    transition_10_11.symbol_ = 'c';*/
-
     ///States
     ///State zero
     State state_0;
@@ -134,53 +88,6 @@ void PrepareTestAddLetterOne(FactorOracle& oracle_relations)
     state_3.lrs_ = 1;
     state_3.transition_.push_back(transition_3_4);
     ///State four
-   /* State state_4;
-    state_4.state_= 4;
-    state_4.suffix_transition_ = 0;
-    state_4.lrs_ = 0;
-    state_4.transition_.push_back(transition_4_5);
-    state_4.transition_.push_back(transition_4_8);
-    ///State five
-    State state_5;
-    state_5.state_= 5;
-    state_5.suffix_transition_ = 1;
-    state_5.lrs_ = 1;
-    state_5.transition_.push_back(transition_5_6);
-    ///State six
-    State state_6;
-    state_6.state_= 6;
-    state_6.suffix_transition_ = 2;
-    state_6.lrs_ = 2;
-    state_6.transition_.push_back(transition_6_7);
-    ///State seven
-    State state_7;
-    state_7.state_= 7;
-    state_7.suffix_transition_ = 4;
-    state_7.lrs_ = 2;
-    state_7.transition_.push_back(transition_7_8);
-    ///State eight
-    State state_8;
-    state_8.state_= 8;
-    state_8.suffix_transition_ = 0;
-    state_8.lrs_ = 0;
-    state_8.transition_.push_back(transition_8_9);
-    ///State nine
-    State state_9;
-    state_9.state_= 9;
-    state_9.suffix_transition_ = 1;
-    state_9.lrs_ = 1;
-    state_9.transition_.push_back(transition_9_10);
-    ///State ten
-    State state_10;
-    state_10.state_= 10;
-    state_10.suffix_transition_ = 2;
-    state_10.lrs_ = 2;
-    state_10.transition_.push_back(transition_10_11);
-    ///State eleven
-    State state_11;
-    state_11.state_= 11;
-    state_11.suffix_transition_ = 4;
-    state_11.lrs_ = 2;*/
 
     ///Complete factor oracle
     oracle_relations.states_.push_back(state_0);
@@ -188,51 +95,41 @@ void PrepareTestAddLetterOne(FactorOracle& oracle_relations)
     oracle_relations.states_.push_back(state_2);
     oracle_relations.states_.push_back(state_3);
     oracle_relations.states_.resize(11);
-    /*
-     *
-     *
-    oracle_relations.states_.push_back(state_4);
-    oracle_relations.states_.push_back(state_5);
-    oracle_relations.states_.push_back(state_6);
-    oracle_relations.states_.push_back(state_7);
-    oracle_relations.states_.push_back(state_8);
-    oracle_relations.states_.push_back(state_9);
-    oracle_relations.states_.push_back(state_10);
-    oracle_relations.states_.push_back(state_11);*/
+
 
 }
-TEST_CASE( "AddLetter (5) symbol_ == a (pass) with string abbcabcdabc", "[classic]") {
+TEST_CASE( "AddLetter (5) symbol_ == a (pass) with string abbcabcdabc", "[fo]") {
     FactorOracle oracle_relations;
     string word = "abbcabcdabc";
     int len = word.size();
     oracle_relations.T = {{1,2,3},{},{3}, {},{}};
     PrepareTestAddLetterOne(oracle_relations);
-    oracle_relations.AddLetter(oracle_relations, oracle_relations.T, 5,word);
+    oracle_relations.AddLetter(5,word);
     REQUIRE(oracle_relations.states_[4].transition_[0].symbol_ == 'a');
 }
 
-TEST_CASE( "AddLetter (5) T  == a (pass) with string abbcabcdabc", "[classic]") {
+TEST_CASE( "AddLetter (5) T  == a (pass) with string abbcabcdabc", "[fo]") {
     FactorOracle oracle_relations;
     string word = "abbcabcdabc";
     int len = word.size();
     oracle_relations.T = {{1,2,3,4},{},{3}, {},{}};
     PrepareTestAddLetterOne(oracle_relations);
-    oracle_relations.AddLetter(oracle_relations, oracle_relations.T, 5,word);
+    oracle_relations.AddLetter(5,word);
     REQUIRE(oracle_relations.T[1][0] == 5);
 }
 
 
-TEST_CASE( "AddLetter one letter word (pass) with string a", "[classic]") {
+TEST_CASE( "AddLetter one letter word (pass) with string a", "[fo]") {
     FactorOracle oracle_relations;
     string word = "a";
     int len = word.size();
     oracle_relations.T = {{},{}};
     oracle_relations.states_.resize(len+1);
     PrepareTestAddLetter(oracle_relations);
-    oracle_relations.AddLetter(oracle_relations, oracle_relations.T, 1,word);
+    oracle_relations.AddLetter(1,word);
     REQUIRE(oracle_relations.states_[0].transition_[0].first_state_ == 0);
     REQUIRE(oracle_relations.states_[0].transition_[0].last_state_ == 1);
     REQUIRE(oracle_relations.states_[0].transition_[0].symbol_ == 'a');
   // Ask if there is a way to add a null symbol
-}
+}*/
 

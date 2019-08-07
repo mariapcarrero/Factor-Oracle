@@ -23,7 +23,6 @@
 */
 /*! \fn void AddLetter(FactorOracle& States, vector <vector<int>> &T, int i, string word)
     \brief Adds new transitions from state i-1 to state i.
-    \param all_states_ A reference to a FactorOracle class.
     \param T A vector where each position has all the suffix transitions directed to each state.
     \param i The integer of the current state.
     \param word The input string.
@@ -31,13 +30,11 @@
 */
 /*! \fn int LengthCommonSuffix(FactorOracle& States, int phi_one, int phi_two)
     \brief Finds the length of a common suffix ending at the position phi_one and phi_two by traversing the suffix links.
-    \param all_states_ A reference to a FactorOracle class.
     \param phi_one The position of the state.
     \param phi_two The position of the state.
 */
 /*! \fn int FindBetter(FactorOracle& States, vector <vector<int>> &T, int i, char alpha, string word)
     \brief Writes \a count bytes from \a buf to the filedescriptor \a fd.
-    \param all_states_ a reference to a FactorOracle class.
     \param T A vector where each position has all the suffix transitions directed to each state.
     \param i The integer of the current state.
     \param alpha The transition symbol.
@@ -46,7 +43,6 @@
 */
 /*! \fn string FOGenerate(FactorOracle& States, int i, string v, float q)
     \brief Generates the Factor Oracle improvisation.
-    \param all_states_ A reference to a FactorOracle class.
     \param i The integer of the current state.
     \param v The sequence v.
     \param q A float argument.
@@ -54,7 +50,6 @@
 */
 /*! \fn void FactorOracleStart(FactorOracle& OracleRelations,string word)
     \brief Starts the process of the Factor Oracle generation .
-    \param oracle_relations A reference to a FactorOracle class.
     \param word The input string.
 */
 
@@ -96,13 +91,13 @@ class FactorOracle
 public:
     vector <State> states_; /**< vector of all the states */
     vector <vector<int>> T; /**< vector where each position has all the suffix transitions directed to each state */
-    void AddLetter(FactorOracle& all_states_, vector <vector<int> > &T, int i, string word);
-    int LengthCommonSuffix(FactorOracle& all_states_, int phi_one, int phi_two);
-    int FindBetter(FactorOracle& all_states_, vector <vector<int> > &T, int i, char alpha, string word);
-    string FOGenerate(FactorOracle& all_states_, int& i, string v, float q);
-    void FactorOracleStart(FactorOracle& oracle_relations,string word);
-    void FactorOracleWord(FactorOracle& oracle_relations, string word);
-
+    void AddLetter( int i, string word);
+    int LengthCommonSuffix(int phi_one, int phi_two);
+    int FindBetter(int i, char alpha, string word);
+    string FOGenerate(int& i, string v, float q);
+    void FactorOracleStart( string word);
+    void AddState(int first_state);
+    void AddTransition(int first_state, int last_state, char symbol);
 };
 
 

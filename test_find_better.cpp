@@ -1,9 +1,9 @@
 //
 // Created by MARIA PAULA CARRERO on 7/28/19.
 //
+/*
 
-
-#include "catch.h"
+#include "catch.hpp"
 #include "FactorOracle.h"
 
 
@@ -355,31 +355,32 @@ void PrepareTestTwo(FactorOracle& oracle_relations)
     oracle_relations.states_.push_back(state_11);
 
 }
-TEST_CASE( "FindBetter 11 a == 7 (pass) with string abbcabcdabc", "[classic]") {
+TEST_CASE( "FindBetter 11 a == 7 (pass) with string abbcabcdabc", "[fo]") {
     FactorOracle oracle_relations;
     string word = "abbcabcdabc";
     int len = word.size();
     oracle_relations.T = {{1,2,3,4},{5,9},{3,6,10}, {}, {7,11}, {}, {},{},{},{},{},{}};
     PrepareTest(oracle_relations);
-    REQUIRE(oracle_relations.FindBetter(oracle_relations, oracle_relations.T, 11, 'a', word) == 7);
+    REQUIRE(oracle_relations.FindBetter(11, 'a', word) == 7);
 }
 
 
-TEST_CASE( "FindBetter 11 b == 7 (fail) with string abbcabcdabc", "[classic]") {
+TEST_CASE( "FindBetter 11 b == 7 (fail) with string abbcabcdabc", "[fo]") {
     FactorOracle oracle_relations;
     string word = "abbcabcdabc";
     int len = word.size();
     oracle_relations.T = {{1,2,3,4},{5,9},{3,6,10}, {}, {7,11}, {}, {},{},{},{},{},{}};
     PrepareTest(oracle_relations);
-    REQUIRE(oracle_relations.FindBetter(oracle_relations, oracle_relations.T, 11, 'b', word) == 7);
+    REQUIRE(oracle_relations.FindBetter(11, 'b', word) == 7);
 }
 
-TEST_CASE( "FindBetter 4 b == 0 (pass) with string abbcabcdabc", "[classic]") {
+TEST_CASE( "FindBetter 4 b == 0 (pass) with string abbcabcdabc", "[fo]") {
     FactorOracle oracle_relations;
     string word = "abbcabcdabc";
     int len = word.size();
     oracle_relations.T = {{1,2,3,4},{5,9},{3,6,10}, {}, {7,11}, {}, {},{},{},{},{},{}};
     PrepareTest(oracle_relations);
-    REQUIRE(oracle_relations.FindBetter(oracle_relations, oracle_relations.T, 4, 'a', word) == 0);
+    REQUIRE(oracle_relations.FindBetter(4, 'a', word) == 0);
 }
 
+*/
