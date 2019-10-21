@@ -1,58 +1,58 @@
 //
 // Created by MARIA PAULA CARRERO on 7/23/19.
 //
-/*
+
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include "FactorOracle.h"
 
 TEST_CASE( "LengthCommonSuffix 4 0 == 0 (pass)", "[fo]") {
-    FactorOracle oracle_relations;
+    FactorOracle<char> oracle_relations;
     string word = "abbcabcdabc";
-    oracle_relations.FactorOracleStart("abbcabcdabc");
+    oracle_relations.FactorOracleStart({'a','b','b','c','a','b','c','d','a','b','c'});
     REQUIRE(oracle_relations.LengthCommonSuffix(4,0) == 0 );
 }
 
 TEST_CASE( "LengthCommonSuffix 4 0 == 2 (fail)", "[fo]") {
-    FactorOracle oracle_relations;
+    FactorOracle<char> oracle_relations;
     string word = "abbcabcdabc";
-    oracle_relations.FactorOracleStart("abbcabcdabc");
+    oracle_relations.FactorOracleStart({'a','b','b','c','a','b','c','d','a','b','c'});
     REQUIRE(oracle_relations.LengthCommonSuffix(4,0) == 2 );
 }
 
 TEST_CASE( "LengthCommonSuffix 5 1 == 1 (pass)", "[fo]") {
-    FactorOracle oracle_relations;
+    FactorOracle<char> oracle_relations;
     string word = "abbcabcdabc";
-    oracle_relations.FactorOracleStart("abbcabcdabc");
+    oracle_relations.FactorOracleStart({'a','b','b','c','a','b','c','d','a','b','c'});
     REQUIRE(oracle_relations.LengthCommonSuffix(5,1) == 1 );
 }
 
 
 TEST_CASE( "LengthCommonSuffix 6 3 == 1 (pass)", "[fo]") {
-    FactorOracle oracle_relations;
+    FactorOracle<char> oracle_relations;
     string word = "abbcabcdabc";
-    oracle_relations.FactorOracleStart("abbcabcdabc");
+    oracle_relations.FactorOracleStart({'a','b','b','c','a','b','c','d','a','b','c'});
     REQUIRE(oracle_relations.LengthCommonSuffix(6,3) == 1 );
 }
 
 TEST_CASE( "LengthCommonSuffix 9 1 == 1 (pass)", "[fo]") {
-    FactorOracle oracle_relations;
+    FactorOracle<char> oracle_relations;
     string word = "abbcabcdabc";
-    oracle_relations.FactorOracleStart("abbcabcdabc");
+    oracle_relations.FactorOracleStart({'a','b','b','c','a','b','c','d','a','b','c'});
     REQUIRE(oracle_relations.LengthCommonSuffix( 9,1) == 1 );
 }
 
 TEST_CASE( "LengthCommonSuffix 10 3 == 1 (pass)", "[fo]") {
-    FactorOracle oracle_relations;
+    FactorOracle<char> oracle_relations;
     string word = "abbcabcdabc";
-    oracle_relations.FactorOracleStart("abbcabcdabc");
+    oracle_relations.FactorOracleStart({'a','b','b','c','a','b','c','d','a','b','c'});
     REQUIRE(oracle_relations.LengthCommonSuffix(10,3) == 1 );
 }
 
 TEST_CASE( "LengthCommonSuffix 8 0 == 0 (pass)", "[fo]") {
-    FactorOracle oracle_relations;
+    FactorOracle<char> oracle_relations;
     string word = "abbcabcdabc";
-    oracle_relations.FactorOracleStart("abbcabcdabc");
+    oracle_relations.FactorOracleStart({'a','b','b','c','a','b','c','d','a','b','c'});
     REQUIRE(oracle_relations.LengthCommonSuffix(8,0) == 0 );
 }
 
