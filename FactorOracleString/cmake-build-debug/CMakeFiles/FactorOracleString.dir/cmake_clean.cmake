@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/FactorOracleString.dir/main.cpp.o"
-  "FactorOracleString.pdb"
   "FactorOracleString"
+  "FactorOracleString.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
