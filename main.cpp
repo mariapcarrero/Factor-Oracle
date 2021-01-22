@@ -11,9 +11,24 @@
 
 
 int main() {
-    FactorOracle<int> oracle_relations;
-    oracle_relations.FactorOracleStart({1});
-   // oracle_relations.FactorOracleStart({1,2,2,3,1,2,3,4,1,2,3});
+    /*FactorOracle<int> oracle_relations;
+  //  oracle_relations.FactorOracleStart({1});
+    oracle_relations.FactorOracleStart({1,2,2,3,1,2,3,4,1,2,3});
+    oracle_relations.CallGenerate(10,0.6);*/
+    FactorOracle<char> oracle_relations;
+    oracle_relations.FactorOracleStart({'a','b','b','c','a','b','c','d','a','b','c'});
+    //oracle_relations.FactorOracleStart({'a','b','b','c','a'});
+    cout << "RevSuffix: " << "\n";
+    int lensuf = oracle_relations.RevSuffix.size();
+    for (int x = 0; x < lensuf; x++)
+    {
+        int leninteral = oracle_relations.RevSuffix[x].size();
+        cout << "Estado: " << x << "\n";
+        for (int i = 0; i < leninteral; i++) {
+            cout << oracle_relations.RevSuffix[x][i] << " ";
+        }
+        cout << endl;
+    }
     oracle_relations.CallGenerate(10,0.6);
     return 0;
 }

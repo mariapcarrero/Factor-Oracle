@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/mariapaulacarrero/CLionProjects/FactorOracleTemplate/test_fos.cpp" "/Users/mariapaulacarrero/CLionProjects/FactorOracleTemplate/cmake-build-debug/CMakeFiles/TestFOS.dir/test_fos.cpp.o"
+  "/Users/mariapaulacarrero/Documents/GitHub/Factor-Oracle/test_fos.cpp" "/Users/mariapaulacarrero/Documents/GitHub/Factor-Oracle/cmake-build-debug/CMakeFiles/TestFOS.dir/test_fos.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
@@ -14,7 +14,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/mariapaulacarrero/CLionProjects/FactorOracleTemplate/cmake-build-debug/CMakeFiles/FO.dir/DependInfo.cmake"
+  "/Users/mariapaulacarrero/Documents/GitHub/Factor-Oracle/cmake-build-debug/CMakeFiles/FO.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

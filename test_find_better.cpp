@@ -358,7 +358,7 @@ void PrepareTestTwo(FactorOracle<char>& oracle_relations)
 TEST_CASE( "FindBetter 11 a == 7 (pass) with string abbcabcdabc", "[fo]") {
     FactorOracle<char> oracle_relations;
     vector<char> word = {'a','b','b','c','a','b','c','d','a','b','c'};
-    oracle_relations.RevSuffix = {{1,2,3,4},{5,9},{3,6,10}, {}, {7,11}, {}, {},{},{},{},{},{}};
+    oracle_relations.RevSuffix = {{1,2,4,8},{5,9},{3,6,10}, {}, {7}, {}, {},{11},{},{},{},{}};
     PrepareTest(oracle_relations);
     REQUIRE(oracle_relations.FindBetter(11, 'a', word) == 7);
 }
@@ -367,16 +367,16 @@ TEST_CASE( "FindBetter 11 a == 7 (pass) with string abbcabcdabc", "[fo]") {
 TEST_CASE( "FindBetter 11 b == 7 (fail) with string abbcabcdabc", "[fo]") {
     FactorOracle<char> oracle_relations;
     vector<char> word = {'a','b','b','c','a','b','c','d','a','b','c'};
-    oracle_relations.RevSuffix = {{1,2,3,4},{5,9},{3,6,10}, {}, {7,11}, {}, {},{},{},{},{},{}};
+    oracle_relations.RevSuffix = {{1,2,4,8},{5,9},{3,6,10}, {}, {7}, {}, {},{11},{},{},{},{}};
     PrepareTest(oracle_relations);
     REQUIRE(oracle_relations.FindBetter(11, 'b', word) == 7);
 }
 
-TEST_CASE( "FindBetter 4 b == 0 (pass) with string abbcabcdabc", "[fo]") {
+TEST_CASE( "FindBetter 3 a == 0 (pass) with string abbcabcdabc", "[fo]") {
     FactorOracle<char> oracle_relations;
     vector<char> word = {'a','b','b','c','a','b','c','d','a','b','c'};
-    oracle_relations.RevSuffix = {{1,2,3,4},{5,9},{3,6,10}, {}, {7,11}, {}, {},{},{},{},{},{}};
+    oracle_relations.RevSuffix = {{1,2,4,8},{5,9},{3,6,10}, {}, {7}, {}, {},{11},{},{},{},{}};
     PrepareTest(oracle_relations);
-    REQUIRE(oracle_relations.FindBetter(4, 'a', word) == 0);
+    REQUIRE(oracle_relations.FindBetter(3, 'a', word) == 0);
 }
 
