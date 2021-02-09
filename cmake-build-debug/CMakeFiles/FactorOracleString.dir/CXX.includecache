@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/mariapaulacarrero/Documents/GitHub/Factor-Oracle/FactorOracle.h
+iostream
+-
+new
+-
+string
+-
+vector
+-
+variant
+-
+random
+-
+algorithm
+-
+
+/Users/mariapaulacarrero/Documents/GitHub/Factor-Oracle/main.cpp
+FactorOracle.h
+/Users/mariapaulacarrero/Documents/GitHub/Factor-Oracle/FactorOracle.h
+
