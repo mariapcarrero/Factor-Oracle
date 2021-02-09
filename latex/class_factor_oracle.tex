@@ -1,82 +1,86 @@
-\hypertarget{class_factor_oracle}{}\section{Factor\+Oracle Class Reference}
-\label{class_factor_oracle}\index{FactorOracle@{FactorOracle}}
-\subsection*{Public Member Functions}
+\hypertarget{class_factor_oracle}{}\doxysection{Factor\+Oracle$<$ T $>$ Class Template Reference}
+\label{class_factor_oracle}\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_factor_oracle_ae10b4d001c338a73f0f44079e842e7db}{Add\+Letter}} (\mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} \&States, vector$<$ vector$<$ int $>$$>$ \&T, int i, string word)
+void \mbox{\hyperlink{class_factor_oracle_a828e5b60527fae275c3d9f9ca53d3573}{Add\+Letter}} (int i, vector$<$ T $>$ word)
 \item 
-\mbox{\Hypertarget{class_factor_oracle_a9511ac49e53ccf3a1907db4591e1ad0b}\label{class_factor_oracle_a9511ac49e53ccf3a1907db4591e1ad0b}} 
-int {\bfseries Length\+Common\+Suffix} (\mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} \&States, int phi\+\_\+one, int phi\+\_\+two)
+\mbox{\Hypertarget{class_factor_oracle_a6b572edb4897ed4274c70c7c3a879f78}\label{class_factor_oracle_a6b572edb4897ed4274c70c7c3a879f78}} 
+int {\bfseries Length\+Common\+Suffix} (int phi\+\_\+one, int phi\+\_\+two)
 \item 
-int \mbox{\hyperlink{class_factor_oracle_a28d2e85676712f983b1dcba83ae07d50}{Find\+Better}} (\mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} \&States, vector$<$ vector$<$ int $>$$>$ \&T, int i, char alpha, string word)
+int \mbox{\hyperlink{class_factor_oracle_aea5142b9ce8f3b8c0859bf9a08b8f1b0}{Find\+Better}} (int i, T alpha, vector$<$ T $>$ word)
 \item 
-string \mbox{\hyperlink{class_factor_oracle_abe8c4c194b309aeeff1bc05c25563390}{F\+O\+Generate}} (\mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} \&States, int i, string v, float q)
+vector$<$ T $>$ \mbox{\hyperlink{class_factor_oracle_a3877aaefdabd75e5b2bad65a13c33112}{FOGenerate}} (int \&i, vector$<$ T $>$ v, float q)
 \item 
-void \mbox{\hyperlink{class_factor_oracle_a070d7b00cfcb658c5d13ff275ceae01f}{Factor\+Oracle\+Start}} (\mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} \&Oracle\+Relations, string word)
+void \mbox{\hyperlink{class_factor_oracle_adb39720a9dbeba2c4e56c639ea19ae01}{Factor\+Oracle\+Start}} (vector$<$ T $>$ word)
+\item 
+\mbox{\Hypertarget{class_factor_oracle_a9222fe4dd8a046c0f2aa87f25abbd91c}\label{class_factor_oracle_a9222fe4dd8a046c0f2aa87f25abbd91c}} 
+void {\bfseries Add\+State} (int first\+\_\+state)
+\item 
+\mbox{\Hypertarget{class_factor_oracle_a5e533de8f93ebcbf7b70551a0f990bd6}\label{class_factor_oracle_a5e533de8f93ebcbf7b70551a0f990bd6}} 
+void {\bfseries Add\+Transition} (int first\+\_\+state, int last\+\_\+state, T symbol)
+\item 
+\mbox{\Hypertarget{class_factor_oracle_a508e187537371ab94b6e1f72a64f4fd4}\label{class_factor_oracle_a508e187537371ab94b6e1f72a64f4fd4}} 
+void {\bfseries Call\+Generate} (int len, float q)
 \end{DoxyCompactItemize}
-\subsection*{Public Attributes}
+\doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-vector$<$ \mbox{\hyperlink{class_state}{State}} $>$ \mbox{\hyperlink{class_factor_oracle_a6e8dacf834f9ee820818c3655d77d56d}{states\+\_\+}}
+vector$<$ \mbox{\hyperlink{class_state}{State}}$<$ T $>$ $>$ \mbox{\hyperlink{class_factor_oracle_aeb0a97cc7df4dbdd1fbda2ff27349991}{states\+\_\+}}
+\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{class_factor_oracle_ad87af90c36a5c163dba2bec3c935ad3b}{Rev\+Suffix}}
 \end{DoxyCompactItemize}
 
 
-\subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_factor_oracle_ae10b4d001c338a73f0f44079e842e7db}\label{class_factor_oracle_ae10b4d001c338a73f0f44079e842e7db}} 
-\index{FactorOracle@{FactorOracle}!AddLetter@{AddLetter}}
-\index{AddLetter@{AddLetter}!FactorOracle@{FactorOracle}}
-\subsubsection{\texorpdfstring{AddLetter()}{AddLetter()}}
-{\footnotesize\ttfamily void Factor\+Oracle\+::\+Add\+Letter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} \&}]{States,  }\item[{vector$<$ vector$<$ int $>$$>$ \&}]{T,  }\item[{int}]{i,  }\item[{string}]{word }\end{DoxyParamCaption})}
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_factor_oracle_a828e5b60527fae275c3d9f9ca53d3573}\label{class_factor_oracle_a828e5b60527fae275c3d9f9ca53d3573}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!AddLetter@{AddLetter}}
+\index{AddLetter@{AddLetter}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{AddLetter()}{AddLetter()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Add\+Letter (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{vector$<$ T $>$}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 A normal member taking four arguments and returning no value.
 
 
 \begin{DoxyParams}{Parameters}
-{\em all\+\_\+states\+\_\+} & a reference to a \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} class. \\
-\hline
-{\em T} & a reference to a vector of vector of integers. \\
-\hline
 {\em i} & an integer argument. \\
 \hline
 {\em word} & a string argument.\\
 \hline
 \end{DoxyParams}
-$<$ delta(i-\/1, p\mbox{[}i\mbox{]}) $<$-\/ i
-
 $<$ k = S\mbox{[}i-\/1\mbox{]}
 
 $<$ phi\+\_\+one = i-\/1
 
-while k $>$ -\/1 and delta(k,p\mbox{[}i\mbox{]}) is undefined do delta(k, p\mbox{[}i\mbox{]}) $<$-\/ i phi\+\_\+one = k k = S\mbox{[}k\mbox{]}\mbox{\Hypertarget{class_factor_oracle_a070d7b00cfcb658c5d13ff275ceae01f}\label{class_factor_oracle_a070d7b00cfcb658c5d13ff275ceae01f}} 
-\index{FactorOracle@{FactorOracle}!FactorOracleStart@{FactorOracleStart}}
-\index{FactorOracleStart@{FactorOracleStart}!FactorOracle@{FactorOracle}}
-\subsubsection{\texorpdfstring{FactorOracleStart()}{FactorOracleStart()}}
-{\footnotesize\ttfamily void Factor\+Oracle\+::\+Factor\+Oracle\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} \&}]{Oracle\+Relations,  }\item[{string}]{word }\end{DoxyParamCaption})}
+while k $>$ -\/1 and delta(k,p\mbox{[}i\mbox{]}) is undefined do delta(k, p\mbox{[}i\mbox{]}) $<$-\/ i phi\+\_\+one = k k = S\mbox{[}k\mbox{]}\mbox{\Hypertarget{class_factor_oracle_adb39720a9dbeba2c4e56c639ea19ae01}\label{class_factor_oracle_adb39720a9dbeba2c4e56c639ea19ae01}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!FactorOracleStart@{FactorOracleStart}}
+\index{FactorOracleStart@{FactorOracleStart}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FactorOracleStart()}{FactorOracleStart()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Factor\+Oracle\+Start (\begin{DoxyParamCaption}\item[{vector$<$ T $>$}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 A normal member taking one argument and returning no value.
 
 
 \begin{DoxyParams}{Parameters}
-{\em oracle\+\_\+relations} & a reference to a \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} class. \\
-\hline
 {\em word} & a string argument.\\
 \hline
 \end{DoxyParams}
 $<$ S\mbox{[}0\mbox{]} = -\/1
 
-$<$ for i $<$-\/ 1 to m do Add\+Letter(i)\mbox{\Hypertarget{class_factor_oracle_a28d2e85676712f983b1dcba83ae07d50}\label{class_factor_oracle_a28d2e85676712f983b1dcba83ae07d50}} 
-\index{FactorOracle@{FactorOracle}!FindBetter@{FindBetter}}
-\index{FindBetter@{FindBetter}!FactorOracle@{FactorOracle}}
-\subsubsection{\texorpdfstring{FindBetter()}{FindBetter()}}
-{\footnotesize\ttfamily int Factor\+Oracle\+::\+Find\+Better (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} \&}]{States,  }\item[{vector$<$ vector$<$ int $>$$>$ \&}]{T,  }\item[{int}]{i,  }\item[{char}]{alpha,  }\item[{string}]{word }\end{DoxyParamCaption})}
+$<$ for i $<$-\/ 1 to m do Add\+Letter(i)\mbox{\Hypertarget{class_factor_oracle_aea5142b9ce8f3b8c0859bf9a08b8f1b0}\label{class_factor_oracle_aea5142b9ce8f3b8c0859bf9a08b8f1b0}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!FindBetter@{FindBetter}}
+\index{FindBetter@{FindBetter}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FindBetter()}{FindBetter()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Find\+Better (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{T}]{alpha,  }\item[{vector$<$ T $>$}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 A normal member taking five arguments and returning an integer value.
 
 
 \begin{DoxyParams}{Parameters}
-{\em all\+\_\+states\+\_\+} & a reference to a \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} class. \\
-\hline
-{\em T} & a reference to a vector of vector of integers. \\
+{\em Rev\+Suffix} & a reference to a vector of vector of integers. \\
 \hline
 {\em i} & an integer argument. \\
 \hline
@@ -88,18 +92,17 @@ A normal member taking five arguments and returning an integer value.
 \begin{DoxyReturn}{Returns}
 A better state
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_factor_oracle_abe8c4c194b309aeeff1bc05c25563390}\label{class_factor_oracle_abe8c4c194b309aeeff1bc05c25563390}} 
-\index{FactorOracle@{FactorOracle}!FOGenerate@{FOGenerate}}
-\index{FOGenerate@{FOGenerate}!FactorOracle@{FactorOracle}}
-\subsubsection{\texorpdfstring{FOGenerate()}{FOGenerate()}}
-{\footnotesize\ttfamily string Factor\+Oracle\+::\+F\+O\+Generate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} \&}]{States,  }\item[{int}]{i,  }\item[{string}]{v,  }\item[{float}]{q }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_factor_oracle_a3877aaefdabd75e5b2bad65a13c33112}\label{class_factor_oracle_a3877aaefdabd75e5b2bad65a13c33112}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!FOGenerate@{FOGenerate}}
+\index{FOGenerate@{FOGenerate}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FOGenerate()}{FOGenerate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$T$>$ \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::FOGenerate (\begin{DoxyParamCaption}\item[{int \&}]{i,  }\item[{vector$<$ T $>$}]{v,  }\item[{float}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 A normal member taking four arguments and returning a string value.
 
 
 \begin{DoxyParams}{Parameters}
-{\em all\+\_\+states\+\_\+} & a reference to a \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}} class. \\
-\hline
 {\em i} & an integer argument. \\
 \hline
 {\em v} & a string argument. \\
@@ -114,22 +117,29 @@ Will be used to obtain a seed for the random number engine
 
 Standard mersenne\+\_\+twister\+\_\+engine seeded with rd()
 
-float u = (float)rand() / R\+A\+N\+D\+\_\+\+M\+AX;
+float u = (float)rand() / RAND\+\_\+\+MAX;
 
 Will be used to obtain a seed for the random number engine
 
-Standard mersenne\+\_\+twister\+\_\+engine seeded with rd() 
+Standard mersenne\+\_\+twister\+\_\+engine seeded with rd()
 
-\subsection{Member Data Documentation}
-\mbox{\Hypertarget{class_factor_oracle_a6e8dacf834f9ee820818c3655d77d56d}\label{class_factor_oracle_a6e8dacf834f9ee820818c3655d77d56d}} 
-\index{FactorOracle@{FactorOracle}!states\_@{states\_}}
-\index{states\_@{states\_}!FactorOracle@{FactorOracle}}
-\subsubsection{\texorpdfstring{states\_}{states\_}}
-{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{class_state}{State}}$>$ Factor\+Oracle\+::states\+\_\+}
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_factor_oracle_ad87af90c36a5c163dba2bec3c935ad3b}\label{class_factor_oracle_ad87af90c36a5c163dba2bec3c935ad3b}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!RevSuffix@{RevSuffix}}
+\index{RevSuffix@{RevSuffix}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RevSuffix}{RevSuffix}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$vector$<$int$>$ $>$ \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Rev\+Suffix}
+
+vector where each position has all the suffix transitions directed to each state \mbox{\Hypertarget{class_factor_oracle_aeb0a97cc7df4dbdd1fbda2ff27349991}\label{class_factor_oracle_aeb0a97cc7df4dbdd1fbda2ff27349991}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!states\_@{states\_}}
+\index{states\_@{states\_}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{states\_}{states\_}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$\mbox{\hyperlink{class_state}{State}}$<$T$>$ $>$ \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::states\+\_\+}
 
 vector of all the states 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_factor_oracle_8h}{Factor\+Oracle.\+h}}\item 
-\mbox{\hyperlink{_factor_oracle_8cpp}{Factor\+Oracle.\+cpp}}\end{DoxyCompactItemize}
+\mbox{\hyperlink{_factor_oracle_8h}{Factor\+Oracle.\+h}}\end{DoxyCompactItemize}

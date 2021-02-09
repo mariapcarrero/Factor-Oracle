@@ -1,4 +1,4 @@
-# Install script for directory: /Users/mariapaulacarrero/CLionProjects/FactorOracleString
+# Install script for directory: /Users/mariapaulacarrero/Documents/GitHub/Factor-Oracle
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/mariapaulacarrero/CLionProjects/FactorOracleString/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/mariapaulacarrero/Documents/GitHub/Factor-Oracle/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
