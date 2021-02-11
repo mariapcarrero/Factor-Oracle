@@ -24,17 +24,18 @@ int phi, k, fo_iter;
 
     Three main classes: FactorOracle, State and SingleTransition.
 */
-/*! \fn void AddLetter(FactorOracle& States, vector <vector<int>> &T, int i, string word)
+/*! \fn void AddLetter(int i, vector<T> word)
     \brief Adds new transitions from state i-1 to state i.
     \param T A vector where each position has all the suffix transitions directed to each state.
     \param i The integer of the current state.
     \param word The input string.
 
 */
-/*! \fn int LengthCommonSuffix(FactorOracle& States, int phi_one, int phi_two)
+/*! \fn int LengthCommonSuffix(int phi_one, int phi_two)
     \brief Finds the length of a common suffix ending at the position phi_one and phi_two by traversing the suffix links.
     \param phi_one The position of the state.
     \param phi_two The position of the state.
+    \return Length of the common suffix
 */
 /*! \fn int FindBetter(FactorOracle& States, vector <vector<int>> &T, int i, char alpha, string word)
     \brief Writes \a count bytes from \a buf to the filedescriptor \a fd.
@@ -44,19 +45,30 @@ int phi, k, fo_iter;
     \param word The input string.
     \return A better state
 */
-/*! \fn string FOGenerate(FactorOracle& States, int i, string v, float q)
+/*! \fn string FOGenerate(int& i, vector<T> v, float q)
     \brief Generates the Factor Oracle improvisation.
     \param i The integer of the current state.
     \param v The sequence v.
     \param q A float argument.
     \return The factor oracle improvisation
 */
-/*! \fn void FactorOracleStart(FactorOracle& OracleRelations,string word)
-    \brief Starts the process of the Factor Oracle generation .
-    \param word The input string.
+/*! \fn void FactorOracleStart(vector<T> word)
+    \brief Starts the process of the Factor Oracle generation.
+    \param word The input template.
 */
 
+/*! \fn void AddState(int first_state)
+    \brief Declares de first state of the current state as "first_state".
+    \param first_state The number of the first state.
+*/
 
+/*! \fn void AddTransition(int first_state, int last_state, T symbol)
+    \brief Creates a transition between the first state and the last state, and declares the symbol as the input symbol T.
+    Then assigns the transition to the current state (first_state).
+    \param first_state The number of the first state.
+    \param last_state The number of the last state.
+    \param symbol The template T.
+*/
 
 
 using namespace std;
@@ -96,12 +108,12 @@ class FactorOracle
 public:
     vector <State<T>> states_; /**< vector of all the states */
     vector <vector<int>> RevSuffix; /**< vector where each position has all the suffix transitions directed to each state */
-    void AddLetter( int i, vector<T> word)
+    void AddLetter(int i, vector<T> word)
     {
-        //! A normal member taking four arguments and returning no value.
+        //! A normal member taking two arguments and returning no value.
         /*!
           \param i an integer argument.
-          \param word a string argument.
+          \param word a vector of template arguments.
         */
         T alpha = word[i-1];
         this->AddState(i-1);
@@ -183,6 +195,13 @@ public:
     };
     int LengthCommonSuffix(int phi_one, int phi_two)
     {
+        //! A normal member taking two arguments and returning an integer value.
+        /*!
+            \brief Finds the length of a common suffix ending at the position phi_one and phi_two by traversing the suffix links.
+            \param phi_one the position of the state.
+            \param phi_two the position of the state.
+            \return Length of the common suffix.
+        */
         if (phi_two == this->states_[phi_one].suffix_transition_)
             return this->states_[phi_one].lrs_;
         else
@@ -196,13 +215,12 @@ public:
     };
     int FindBetter(int i, T alpha, vector<T> word)
     {
-        //! A normal member taking five arguments and returning an integer value.
+        //! A normal member taking three arguments and returning an integer value.
         /*!
-          \param RevSuffix a reference to a vector of vector of integers.
           \param i an integer argument.
-          \param alpha a char argument.
-          \param word a string argument.
-          \return A better state
+          \param alpha a template argument.
+          \param word a vector of template arguments.
+          \return A better state, if none is found, returns the number 0.
         */
 
         int len_t = this->RevSuffix[this->states_[i].suffix_transition_].size();
@@ -222,18 +240,18 @@ public:
     };
     vector<T> FOGenerate(int& i, vector<T> v, float q)
     {
-        //! A normal member taking four arguments and returning a string value.
+        //! A normal member taking four arguments and returning a vector of templates.
         /*!
-          \param i an integer argument.
-          \param v a string argument.
+          \param i a reference to an integer argument.
+          \param v a template argument.
           \param q a float argument.
-          \return The factor oracle improvisation
+          \return The factor oracle improvisation.
         */
-        std::random_device rd;  ///Will be used to obtain a seed for the random number engine
-        std::mt19937 gen(rd()); ///Standard mersenne_twister_engine seeded with rd()
+        std::random_device rd;  //Will be used to obtain a seed for the random number engine
+        std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
         std::uniform_real_distribution<> dis(0.0, 1.0);
         float u = dis(gen);
-        /// float u = (float)rand() / RAND_MAX;
+        // float u = (float)rand() / RAND_MAX;
         if (this->states_.size() == 2)
         {
             v.push_back(this->states_[0].transition_[0].symbol_);
@@ -253,8 +271,8 @@ public:
             else
             {
                 int lenSuffix = this->states_[this->states_[i].suffix_transition_].transition_.size() - 1;
-                std::random_device rd;  ///Will be used to obtain a seed for the random number engine
-                std::mt19937 gen(rd()); ///Standard mersenne_twister_engine seeded with rd()
+                std::random_device rd;  //Will be used to obtain a seed for the random number engine
+                std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
                 std::uniform_int_distribution<> dis_int(0, lenSuffix);
                 int rand_alpha = dis_int(gen);
                 T alpha = this->states_[this->states_[i].suffix_transition_].transition_[rand_alpha].symbol_;
@@ -268,11 +286,11 @@ public:
         }
         return v;
     };
-    void FactorOracleStart( vector<T> word)
+    void FactorOracleStart(vector<T> word)
     {
         //! A normal member taking one argument and returning no value.
         /*!
-          \param word a string argument.
+          \param word a vector of template arguments.
         */
         int len = word.size();
         this->states_.resize(len+1);
@@ -313,10 +331,24 @@ public:
     };
     void AddState(int first_state)
     {
+        //! A normal member taking one argument and returning no value.
+        /*!
+            \brief Declares de first state of the current state as "first_state".
+            \param first_state the number of the first state.
+        */
         this->states_[first_state].state_ = first_state;
     };
     void AddTransition(int first_state, int last_state, T symbol)
     {
+        //! A normal member taking three arguments and returning no value.
+        /*!
+            \brief Creates a transition between the first state and the last state, and declares the symbol as the input symbol T.
+            Then assigns the transition to the current state (first_state).
+            \param first_state the number of the first state.
+            \param last_state the number of the last state.
+            \param symbol the template T.
+        */
+
         SingleTransition<T> transition_i;
         transition_i.first_state_ = first_state;
         transition_i.last_state_ = last_state;
@@ -325,6 +357,12 @@ public:
     };
     void CallGenerate(int len, float q)
     {
+        //! A normal member taking two arguments and returning no value.
+        /*!
+            \brief Calls the FOGenerate function to start the improvisation.
+            \param len the length of the improvisation vector.
+            \param q the probability value between 0 and 1.
+        */
         vector<T> oracle = {};
         fo_iter = 1;
         // int q = 0;
