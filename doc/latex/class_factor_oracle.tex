@@ -1,0 +1,198 @@
+\hypertarget{class_factor_oracle}{}\doxysection{Factor\+Oracle$<$ T $>$ Class Template Reference}
+\label{class_factor_oracle}\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_factor_oracle_a828e5b60527fae275c3d9f9ca53d3573}{Add\+Letter}} (int i, vector$<$ T $>$ word)
+\item 
+int \mbox{\hyperlink{class_factor_oracle_a6b572edb4897ed4274c70c7c3a879f78}{Length\+Common\+Suffix}} (int phi\+\_\+one, int phi\+\_\+two)
+\item 
+int \mbox{\hyperlink{class_factor_oracle_aea5142b9ce8f3b8c0859bf9a08b8f1b0}{Find\+Better}} (int i, T alpha, vector$<$ T $>$ word)
+\item 
+vector$<$ T $>$ \mbox{\hyperlink{class_factor_oracle_a3877aaefdabd75e5b2bad65a13c33112}{FOGenerate}} (int \&i, vector$<$ T $>$ v, float q)
+\item 
+void \mbox{\hyperlink{class_factor_oracle_adb39720a9dbeba2c4e56c639ea19ae01}{Factor\+Oracle\+Start}} (vector$<$ T $>$ word)
+\item 
+void \mbox{\hyperlink{class_factor_oracle_a9222fe4dd8a046c0f2aa87f25abbd91c}{Add\+State}} (int first\+\_\+state)
+\item 
+void \mbox{\hyperlink{class_factor_oracle_a5e533de8f93ebcbf7b70551a0f990bd6}{Add\+Transition}} (int first\+\_\+state, int last\+\_\+state, T symbol)
+\item 
+void \mbox{\hyperlink{class_factor_oracle_a508e187537371ab94b6e1f72a64f4fd4}{Call\+Generate}} (int len, float q)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \mbox{\hyperlink{class_state}{State}}$<$ T $>$ $>$ \mbox{\hyperlink{class_factor_oracle_aeb0a97cc7df4dbdd1fbda2ff27349991}{states\+\_\+}}
+\item 
+vector$<$ vector$<$ int $>$ $>$ \mbox{\hyperlink{class_factor_oracle_ad87af90c36a5c163dba2bec3c935ad3b}{Rev\+Suffix}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_factor_oracle_a828e5b60527fae275c3d9f9ca53d3573}\label{class_factor_oracle_a828e5b60527fae275c3d9f9ca53d3573}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!AddLetter@{AddLetter}}
+\index{AddLetter@{AddLetter}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{AddLetter()}{AddLetter()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Add\+Letter (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{vector$<$ T $>$}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A normal member taking two arguments and returning no value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & an integer argument. \\
+\hline
+{\em word} & a vector of template arguments.\\
+\hline
+\end{DoxyParams}
+$<$ k = S\mbox{[}i-\/1\mbox{]}
+
+$<$ phi\+\_\+one = i-\/1
+
+while k $>$ -\/1 and delta(k,p\mbox{[}i\mbox{]}) is undefined do delta(k, p\mbox{[}i\mbox{]}) $<$-\/ i phi\+\_\+one = k k = S\mbox{[}k\mbox{]}\mbox{\Hypertarget{class_factor_oracle_a9222fe4dd8a046c0f2aa87f25abbd91c}\label{class_factor_oracle_a9222fe4dd8a046c0f2aa87f25abbd91c}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!AddState@{AddState}}
+\index{AddState@{AddState}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{AddState()}{AddState()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Add\+State (\begin{DoxyParamCaption}\item[{int}]{first\+\_\+state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A normal member taking one argument and returning no value.
+
+Declares de first state of the current state as \char`\"{}first\+\_\+state\char`\"{}. 
+\begin{DoxyParams}{Parameters}
+{\em first\+\_\+state} & the number of the first state.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_factor_oracle_a5e533de8f93ebcbf7b70551a0f990bd6}\label{class_factor_oracle_a5e533de8f93ebcbf7b70551a0f990bd6}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!AddTransition@{AddTransition}}
+\index{AddTransition@{AddTransition}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{AddTransition()}{AddTransition()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Add\+Transition (\begin{DoxyParamCaption}\item[{int}]{first\+\_\+state,  }\item[{int}]{last\+\_\+state,  }\item[{T}]{symbol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A normal member taking three arguments and returning no value.
+
+Creates a transition between the first state and the last state, and declares the symbol as the input symbol T. Then assigns the transition to the current state (first\+\_\+state). 
+\begin{DoxyParams}{Parameters}
+{\em first\+\_\+state} & the number of the first state. \\
+\hline
+{\em last\+\_\+state} & the number of the last state. \\
+\hline
+{\em symbol} & the template T.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_factor_oracle_a508e187537371ab94b6e1f72a64f4fd4}\label{class_factor_oracle_a508e187537371ab94b6e1f72a64f4fd4}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!CallGenerate@{CallGenerate}}
+\index{CallGenerate@{CallGenerate}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{CallGenerate()}{CallGenerate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Call\+Generate (\begin{DoxyParamCaption}\item[{int}]{len,  }\item[{float}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A normal member taking two arguments and returning no value.
+
+Calls the FOGenerate function to start the improvisation. 
+\begin{DoxyParams}{Parameters}
+{\em len} & the length of the improvisation vector. \\
+\hline
+{\em q} & the probability value between 0 and 1.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_factor_oracle_adb39720a9dbeba2c4e56c639ea19ae01}\label{class_factor_oracle_adb39720a9dbeba2c4e56c639ea19ae01}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!FactorOracleStart@{FactorOracleStart}}
+\index{FactorOracleStart@{FactorOracleStart}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FactorOracleStart()}{FactorOracleStart()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Factor\+Oracle\+Start (\begin{DoxyParamCaption}\item[{vector$<$ T $>$}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A normal member taking one argument and returning no value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & a vector of template arguments.\\
+\hline
+\end{DoxyParams}
+$<$ S\mbox{[}0\mbox{]} = -\/1
+
+$<$ for i $<$-\/ 1 to m do Add\+Letter(i)\mbox{\Hypertarget{class_factor_oracle_aea5142b9ce8f3b8c0859bf9a08b8f1b0}\label{class_factor_oracle_aea5142b9ce8f3b8c0859bf9a08b8f1b0}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!FindBetter@{FindBetter}}
+\index{FindBetter@{FindBetter}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FindBetter()}{FindBetter()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Find\+Better (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{T}]{alpha,  }\item[{vector$<$ T $>$}]{word }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A normal member taking three arguments and returning an integer value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & an integer argument. \\
+\hline
+{\em alpha} & a template argument. \\
+\hline
+{\em word} & a vector of template arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A better state, if none is found, returns the number 0.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_factor_oracle_a3877aaefdabd75e5b2bad65a13c33112}\label{class_factor_oracle_a3877aaefdabd75e5b2bad65a13c33112}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!FOGenerate@{FOGenerate}}
+\index{FOGenerate@{FOGenerate}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FOGenerate()}{FOGenerate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$T$>$ \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::FOGenerate (\begin{DoxyParamCaption}\item[{int \&}]{i,  }\item[{vector$<$ T $>$}]{v,  }\item[{float}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A normal member taking four arguments and returning a vector of templates.
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & a reference to an integer argument. \\
+\hline
+{\em v} & a template argument. \\
+\hline
+{\em q} & a float argument. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The factor oracle improvisation.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_factor_oracle_a6b572edb4897ed4274c70c7c3a879f78}\label{class_factor_oracle_a6b572edb4897ed4274c70c7c3a879f78}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!LengthCommonSuffix@{LengthCommonSuffix}}
+\index{LengthCommonSuffix@{LengthCommonSuffix}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{LengthCommonSuffix()}{LengthCommonSuffix()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Length\+Common\+Suffix (\begin{DoxyParamCaption}\item[{int}]{phi\+\_\+one,  }\item[{int}]{phi\+\_\+two }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+A normal member taking two arguments and returning an integer value.
+
+Finds the length of a common suffix ending at the position phi\+\_\+one and phi\+\_\+two by traversing the suffix links. 
+\begin{DoxyParams}{Parameters}
+{\em phi\+\_\+one} & the position of the state. \\
+\hline
+{\em phi\+\_\+two} & the position of the state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Length of the common suffix.
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_factor_oracle_ad87af90c36a5c163dba2bec3c935ad3b}\label{class_factor_oracle_ad87af90c36a5c163dba2bec3c935ad3b}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!RevSuffix@{RevSuffix}}
+\index{RevSuffix@{RevSuffix}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RevSuffix}{RevSuffix}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$vector$<$int$>$ $>$ \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::Rev\+Suffix}
+
+vector where each position has all the suffix transitions directed to each state \mbox{\Hypertarget{class_factor_oracle_aeb0a97cc7df4dbdd1fbda2ff27349991}\label{class_factor_oracle_aeb0a97cc7df4dbdd1fbda2ff27349991}} 
+\index{FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}!states\_@{states\_}}
+\index{states\_@{states\_}!FactorOracle$<$ T $>$@{FactorOracle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{states\_}{states\_}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$\mbox{\hyperlink{class_state}{State}}$<$T$>$ $>$ \mbox{\hyperlink{class_factor_oracle}{Factor\+Oracle}}$<$ T $>$\+::states\+\_\+}
+
+vector of all the states 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/mariapaulacarrero/\+Documents/\+Git\+Hub/\+Factor-\/\+Oracle/src/\mbox{\hyperlink{_factor_oracle_8h}{Factor\+Oracle.\+h}}\end{DoxyCompactItemize}
